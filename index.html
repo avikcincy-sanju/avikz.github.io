@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Avik Nandi — Payments & AI Strategy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+:root{
+  --white:#ffffff;--black:#000000;
+  --g50:#f5f5f7;--g100:#e8e8ed;--g200:#d2d2d7;
+  --g400:#86868b;--g600:#515154;--g800:#1d1d1f;
+  --blue:#0071e3;--blue-h:#0077ed;
+}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif;background:var(--white);color:var(--g800);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:48px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.82);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(0,0,0,0.08)}
+.nav-inner{width:100%;max-width:1080px;padding:0 2rem;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-size:.95rem;font-weight:600;color:var(--g800);text-decoration:none;letter-spacing:-.01em}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{font-size:.78rem;font-weight:400;color:var(--g600);text-decoration:none;transition:color .15s;letter-spacing:-.01em}
+.nav-links a:hover{color:var(--g800)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:8rem 2rem 6rem;background:var(--white);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 20%,rgba(0,113,227,.04) 0%,transparent 70%);pointer-events:none}
+.hero-eyebrow{font-size:.78rem;font-weight:500;color:var(--blue);letter-spacing:.02em;margin-bottom:1.25rem;opacity:0;animation:fadeUp .8s .1s ease forwards}
+.hero-name{font-size:clamp(3.5rem,8vw,7rem);font-weight:600;line-height:1.02;letter-spacing:-.04em;color:var(--g800);margin-bottom:1.25rem;opacity:0;animation:fadeUp .8s .25s ease forwards}
+.hero-sub{font-size:clamp(1.1rem,2.5vw,1.5rem);font-weight:300;color:var(--g600);max-width:600px;line-height:1.5;letter-spacing:-.02em;margin:0 auto 2.5rem;opacity:0;animation:fadeUp .8s .4s ease forwards}
+.hero-cta{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;opacity:0;animation:fadeUp .8s .55s ease forwards}
+.btn{display:inline-flex;align-items:center;gap:.4rem;padding:.75rem 1.75rem;border-radius:980px;font-size:.88rem;font-weight:400;text-decoration:none;transition:all .2s;letter-spacing:-.01em;font-family:inherit;cursor:pointer;border:none}
+.btn-fill{background:var(--blue);color:white}
+.btn-fill:hover{background:var(--blue-h);transform:scale(1.02)}
+.btn-ghost{background:var(--g50);color:var(--blue);border:1px solid var(--g200)}
+.btn-ghost:hover{background:var(--g100);transform:scale(1.02)}
+.hero-stats{display:flex;gap:4rem;justify-content:center;margin-top:5rem;padding-top:3rem;border-top:1px solid var(--g100);opacity:0;animation:fadeUp .8s .7s ease forwards;width:100%;max-width:700px;flex-wrap:wrap}
+.stat{text-align:center}
+.stat-num{font-size:2.2rem;font-weight:600;letter-spacing:-.04em;color:var(--g800);line-height:1}
+.stat-label{font-size:.72rem;font-weight:400;color:var(--g400);margin-top:.35rem;letter-spacing:.01em}
+
+/* SECTIONS */
+.wrap{max-width:1080px;margin:0 auto;padding:7rem 2rem}
+.sec-label{font-size:.72rem;font-weight:500;color:var(--blue);letter-spacing:.06em;text-transform:uppercase;margin-bottom:.75rem}
+.sec-head{font-size:clamp(2rem,4vw,3.2rem);font-weight:600;letter-spacing:-.04em;line-height:1.07;color:var(--g800);margin-bottom:1.25rem}
+.sec-sub{font-size:1.05rem;font-weight:300;color:var(--g600);max-width:560px;line-height:1.65;letter-spacing:-.01em}
+.divider{height:1px;background:var(--g100)}
+
+/* BENTO */
+.bento{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:auto auto;gap:1rem;margin-top:3.5rem}
+.bc{background:var(--g50);border-radius:18px;padding:2rem;transition:transform .3s,box-shadow .3s}
+.bc:hover{transform:translateY(-3px);box-shadow:0 8px 40px rgba(0,0,0,.08)}
+.bc.wide{grid-column:span 2}
+.bc.dark{background:var(--g800);color:white}
+.bc.blue{background:var(--blue);color:white}
+.bc-icon{font-size:2rem;margin-bottom:1.25rem;display:block}
+.bc-title{font-size:1.05rem;font-weight:600;letter-spacing:-.02em;margin-bottom:.6rem;line-height:1.3}
+.bc-desc{font-size:.82rem;font-weight:300;line-height:1.65;color:var(--g600)}
+.bc.dark .bc-desc,.bc.blue .bc-desc{color:rgba(255,255,255,.6)}
+.bc.dark .bc-title,.bc.blue .bc-title{color:white}
+
+/* TIMELINE */
+.timeline{margin-top:3.5rem}
+.tl-item{display:grid;grid-template-columns:180px 1fr;gap:2.5rem;padding:2.5rem 0;border-top:1px solid var(--g100)}
+.tl-item:last-child{border-bottom:1px solid var(--g100)}
+.tl-period{font-size:.75rem;font-weight:500;color:var(--blue);margin-bottom:.3rem;letter-spacing:-.01em}
+.tl-co{font-size:.75rem;font-weight:400;color:var(--g400);letter-spacing:.01em}
+.tl-role{font-size:1.25rem;font-weight:600;letter-spacing:-.03em;color:var(--g800);margin-bottom:.65rem;line-height:1.25}
+.tl-desc{font-size:.85rem;font-weight:300;color:var(--g600);line-height:1.75;margin-bottom:1rem}
+.tl-tags{display:flex;flex-wrap:wrap;gap:.4rem}
+.tl-tag{font-size:.7rem;font-weight:400;padding:.3rem .75rem;background:var(--g50);border:1px solid var(--g200);border-radius:980px;color:var(--g600);letter-spacing:-.01em}
+
+/* BOOK */
+.book-section{background:var(--g800);padding:8rem 2rem}
+.book-inner{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}
+.book-cover{background:linear-gradient(145deg,#1c1c1e 0%,#2c2c2e 100%);border-radius:20px;padding:3.5rem 3rem;box-shadow:0 0 0 1px rgba(255,255,255,.08),0 40px 80px rgba(0,0,0,.6),0 20px 40px rgba(0,0,0,.4);position:relative;overflow:hidden}
+.book-cover::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.15),transparent)}
+.book-cover::after{content:'';position:absolute;top:-50%;right:-30%;width:80%;height:80%;background:radial-gradient(circle,rgba(0,113,227,.15) 0%,transparent 70%);pointer-events:none}
+.book-cover-label{font-size:.65rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:2rem}
+.book-cover-title{font-size:2rem;font-weight:600;letter-spacing:-.04em;line-height:1.1;color:white;margin-bottom:.5rem}
+.book-cover-title span{display:block;background:linear-gradient(135deg,#60a5fa,#93c5fd);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.book-cover-author{font-size:.78rem;font-weight:300;color:rgba(255,255,255,.4);margin-top:2.5rem;letter-spacing:.02em}
+.book-head{font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:600;letter-spacing:-.04em;line-height:1.1;color:white;margin-bottom:1.25rem}
+.book-tagline{font-size:1.05rem;font-weight:300;color:rgba(255,255,255,.55);font-style:italic;line-height:1.55;margin-bottom:1.5rem;letter-spacing:-.01em}
+.book-desc{font-size:.88rem;font-weight:300;color:rgba(255,255,255,.45);line-height:1.8;margin-bottom:2.5rem;letter-spacing:-.01em}
+.btn-book{display:inline-flex;align-items:center;gap:.4rem;padding:.75rem 1.75rem;border-radius:980px;background:white;color:var(--g800);font-size:.88rem;font-weight:500;text-decoration:none;letter-spacing:-.01em;transition:all .2s}
+.btn-book:hover{background:var(--g100);transform:scale(1.02)}
+
+/* CLIENTS */
+.clients-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:3.5rem}
+.cl-card{background:var(--g50);border-radius:18px;padding:2rem 2.25rem;transition:transform .3s,box-shadow .3s}
+.cl-card:hover{transform:translateY(-3px);box-shadow:0 8px 40px rgba(0,0,0,.07)}
+.cl-type{font-size:.72rem;font-weight:500;color:var(--blue);letter-spacing:.02em;margin-bottom:.3rem}
+.cl-name{font-size:1.15rem;font-weight:600;letter-spacing:-.03em;margin-bottom:1rem;color:var(--g800)}
+.cl-desc{font-size:.82rem;font-weight:300;color:var(--g600);line-height:1.7;margin-bottom:1rem}
+.cl-tags{display:flex;flex-wrap:wrap;gap:.4rem}
+.cl-tag{font-size:.68rem;padding:.25rem .65rem;background:white;border:1px solid var(--g200);border-radius:980px;color:var(--g600)}
+
+/* PROTOS */
+.proto-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:1rem}
+.proto-card{background:var(--g800);border-radius:18px;padding:2rem 2.25rem;color:white;transition:transform .3s,box-shadow .3s}
+.proto-card:hover{transform:translateY(-3px);box-shadow:0 8px 40px rgba(0,0,0,.2)}
+.proto-lbl{font-size:.68rem;font-weight:500;color:#60a5fa;letter-spacing:.06em;text-transform:uppercase;margin-bottom:.75rem}
+.proto-title{font-size:1.05rem;font-weight:600;letter-spacing:-.02em;margin-bottom:.65rem}
+.proto-desc{font-size:.8rem;font-weight:300;color:rgba(255,255,255,.5);line-height:1.7;margin-bottom:1rem}
+.proto-link{font-size:.75rem;font-weight:500;color:#60a5fa;text-decoration:none;display:inline-flex;align-items:center;gap:.3rem;letter-spacing:-.01em;transition:gap .2s}
+.proto-link:hover{gap:.5rem}
+
+/* WRITING TABS */
+.tab-bar{display:flex;gap:.5rem;margin-bottom:2.5rem;padding:.4rem;background:var(--g50);border-radius:12px;width:fit-content}
+.tab-btn{padding:.55rem 1.25rem;border-radius:8px;border:none;background:none;cursor:pointer;font-size:.82rem;font-weight:500;color:var(--g400);font-family:inherit;letter-spacing:-.01em;transition:all .2s}
+.tab-btn.active{background:white;color:var(--g800);box-shadow:0 1px 6px rgba(0,0,0,.1),0 0 0 .5px rgba(0,0,0,.06)}
+.pub-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.pub-grid.hidden{display:none}
+.pub-feat{grid-column:span 3;display:grid;grid-template-columns:2fr 1fr;background:var(--g50);border-radius:18px;overflow:hidden;text-decoration:none;color:inherit;transition:transform .3s,box-shadow .3s}
+.pub-feat:hover{transform:translateY(-3px);box-shadow:0 8px 40px rgba(0,0,0,.07)}
+.pub-feat-body{padding:2.5rem}
+.pub-feat-badge{display:inline-block;font-size:.68rem;font-weight:500;color:var(--blue);letter-spacing:.04em;text-transform:uppercase;margin-bottom:1rem}
+.pub-feat-title{font-size:1.4rem;font-weight:600;letter-spacing:-.03em;line-height:1.25;color:var(--g800);margin-bottom:.75rem}
+.pub-feat-desc{font-size:.85rem;font-weight:300;color:var(--g600);line-height:1.7}
+.pub-feat-aside{background:var(--blue);display:flex;flex-direction:column;justify-content:flex-end;padding:2rem}
+.pub-aside-num{font-size:3.5rem;font-weight:700;color:rgba(255,255,255,.2);line-height:1;letter-spacing:-.06em}
+.pub-aside-lbl{font-size:.68rem;font-weight:500;color:rgba(255,255,255,.7);letter-spacing:.04em;text-transform:uppercase;margin-top:.25rem}
+.pub-card{background:var(--g50);border-radius:18px;padding:1.75rem;text-decoration:none;color:inherit;display:flex;flex-direction:column;transition:transform .3s,box-shadow .3s}
+.pub-card:hover{transform:translateY(-3px);box-shadow:0 8px 40px rgba(0,0,0,.07)}
+.pub-platform{font-size:.68rem;font-weight:500;color:var(--blue);letter-spacing:.04em;text-transform:uppercase;margin-bottom:.75rem}
+.pub-title{font-size:.95rem;font-weight:600;letter-spacing:-.02em;line-height:1.35;color:var(--g800);margin-bottom:.6rem;flex:1}
+.pub-sub{font-size:.78rem;font-weight:300;color:var(--g400);line-height:1.55;margin-bottom:1rem}
+.pub-date{font-size:.7rem;color:var(--g400);letter-spacing:.01em;margin-top:auto}
+
+/* CONTACT */
+.contact-sec{background:var(--g50);padding:8rem 2rem;text-align:center}
+.contact-inner{max-width:600px;margin:0 auto}
+.contact-head{font-size:clamp(2rem,5vw,3.5rem);font-weight:600;letter-spacing:-.05em;line-height:1.07;color:var(--g800);margin-bottom:1.25rem}
+.contact-sub{font-size:1rem;font-weight:300;color:var(--g400);line-height:1.65;margin-bottom:3rem;letter-spacing:-.01em}
+.contact-links{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;margin-bottom:4rem}
+.contact-link{display:inline-flex;align-items:center;gap:.4rem;padding:.65rem 1.5rem;border-radius:980px;background:white;border:1px solid var(--g200);font-size:.82rem;font-weight:400;color:var(--g600);text-decoration:none;letter-spacing:-.01em;transition:all .2s}
+.contact-link:hover{border-color:var(--g400);color:var(--g800);transform:scale(1.02)}
+.footer-copy{font-size:.72rem;color:var(--g400);letter-spacing:.01em}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+.fi{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.fi.v{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
+
+/* RESPONSIVE */
+@media(max-width:860px){
+  .nav-links{display:none}
+  .bento{grid-template-columns:1fr}
+  .bc.wide{grid-column:span 1}
+  .tl-item{grid-template-columns:1fr;gap:.5rem}
+  .book-inner{grid-template-columns:1fr;gap:3rem}
+  .clients-grid,.proto-grid{grid-template-columns:1fr}
+  .pub-grid{grid-template-columns:1fr}
+  .pub-feat{grid-column:1;grid-template-columns:1fr}
+  .pub-feat-aside{display:none}
+  .hero-stats{gap:2rem}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">Avik Nandi</a>
+    <ul class="nav-links">
+      <li><a href="#expertise">Expertise</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#book">Book</a></li>
+      <li><a href="#clients">Clients</a></li>
+      <li><a href="#writing">Writing</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-eyebrow">Product Manager · Wipro Limited · Cincinnati, Ohio</p>
+  <h1 class="hero-name">Avik Nandi</h1>
+  <p class="hero-sub">Payments Platform & AI Strategy Leader.<br>Building the infrastructure for how money moves intelligently.</p>
+  <div class="hero-cta">
+    <a href="https://www.linkedin.com/in/avikz" target="_blank" class="btn btn-fill">Connect on LinkedIn</a>
+    <a href="https://medium.com/@avikcincy" target="_blank" class="btn btn-ghost">Read My Writing</a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-num">20+</div><div class="stat-label">Years in Payments</div></div>
+    <div class="stat"><div class="stat-num">$50B+</div><div class="stat-label">Annual Volume</div></div>
+    <div class="stat"><div class="stat-num">60+</div><div class="stat-label">Countries</div></div>
+    <div class="stat"><div class="stat-num">1</div><div class="stat-label">Book Published</div></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- EXPERTISE -->
+<div id="expertise">
+<div class="wrap fi">
+  <p class="sec-label">Expertise</p>
+  <h2 class="sec-head">Domain depth across<br>the full payments stack.</h2>
+  <p class="sec-sub">Two decades at the intersection of platform architecture, AI strategy, and regulated financial infrastructure.</p>
+  <div class="bento">
+    <div class="bc wide dark fi d1"><span class="bc-icon">⬡</span><div class="bc-title">Multi-Rail Payments Architecture</div><div class="bc-desc">Deep expertise across Debit, Credit, ACH, RTP, Fedwire, SWIFT, and emerging tokenized settlement. ISO 20022 & ISO 8583 messaging, network strategy, and scheme integration at enterprise scale.</div></div>
+    <div class="bc fi d2"><span class="bc-icon">◈</span><div class="bc-title">Stablecoin & Programmable Settlement</div><div class="bc-desc">Pioneering strategy for stablecoin acquiring, tokenized money flows, and programmable treasury. Recognized author on the autonomous money stack and agentic commerce infrastructure.</div></div>
+    <div class="bc fi d1"><span class="bc-icon">◎</span><div class="bc-title">AI-Driven Payment Decisioning</div><div class="bc-desc">Adaptive fraud and risk platforms, BNPL credit intelligence, automated reconciliation, and AI-driven orchestration for real-time commerce decisions at scale.</div></div>
+    <div class="bc blue fi d2"><span class="bc-icon">⟁</span><div class="bc-title">Merchant of Record & Cross-Border</div><div class="bc-desc">End-to-end MoR platform architecture — automated multi-entity settlement, cross-border fund flows, FX strategy, and regulatory compliance across 60+ countries.</div></div>
+    <div class="bc fi d3"><span class="bc-icon">◱</span><div class="bc-title">Cloud-Native Modernization</div><div class="bc-desc">AWS-first transformation of legacy payments to API-first microservices. Build vs. buy advisory, SaaS rationalization, and platform consolidation at scale.</div></div>
+    <div class="bc fi d4"><span class="bc-icon">◷</span><div class="bc-title">Enterprise Strategy & M&A</div><div class="bc-desc">Trusted advisor on payments operating models and next-gen financial infrastructure. Led $65M+ programs and multi-bank integrations for 1.8M+ customers.</div></div>
+  </div>
+</div>
+</div>
+
+<div class="divider"></div>
+
+<!-- EXPERIENCE -->
+<div id="experience">
+<div class="wrap fi">
+  <p class="sec-label">Career</p>
+  <h2 class="sec-head">20 years shaping<br>enterprise payments.</h2>
+  <div class="timeline">
+    <div class="tl-item fi">
+      <div><div class="tl-period">2024 — Present</div><div class="tl-co">Wipro Limited</div></div>
+      <div>
+        <div class="tl-role">Product Manager</div>
+        <p class="tl-desc">Own global payments platform strategy for $50B+ annual volume across 60+ countries. Directed ISO 20022-based acquiring modernization enabling vendor-agnostic routing and end-to-end transaction observability. Architected the global Merchant of Record fund flow platform and led stablecoin & tokenized settlement strategy for programmable treasury functions. Sponsored AI-driven commerce and fraud decisioning platforms achieving 25–30% uplift in merchant engagement and conversion.</p>
+        <div class="tl-tags"><span class="tl-tag">ISO 20022</span><span class="tl-tag">MoR</span><span class="tl-tag">Stablecoin Strategy</span><span class="tl-tag">AI Commerce</span><span class="tl-tag">Cross-Border FX</span></div>
+      </div>
+    </div>
+    <div class="tl-item fi d1">
+      <div><div class="tl-period">2022 — 2024</div><div class="tl-co">Deloitte</div></div>
+      <div>
+        <div class="tl-role">Consulting Manager</div>
+        <p class="tl-desc">Directed multi-bank M&A payments integration impacting 1.8M+ customers across retail, wealth, commercial, and business banking. Guided $65M+ AWS cloud modernization migrating legacy payments infrastructure to API-first platforms. Delivered large-scale POS integrations reducing manual processing time by 30% and error rates by 40%.</p>
+        <div class="tl-tags"><span class="tl-tag">M&A Integration</span><span class="tl-tag">AWS</span><span class="tl-tag">SWIFT / Fedwire</span><span class="tl-tag">ISO 8583</span></div>
+      </div>
+    </div>
+    <div class="tl-item fi d2">
+      <div><div class="tl-period">2019 — 2022</div><div class="tl-co">FIS</div></div>
+      <div>
+        <div class="tl-role">Senior Payments Product Owner</div>
+        <p class="tl-desc">Led multi-segment acquiring and platform strategy across SMB, SaaS, ISV, and enterprise channels. Developed ML-driven merchant intelligence platforms boosting churn prediction and LTV optimization. Established revenue assurance and ACH recovery platforms.</p>
+        <div class="tl-tags"><span class="tl-tag">Merchant Acquiring</span><span class="tl-tag">ML / Analytics</span><span class="tl-tag">ACH</span><span class="tl-tag">ISV Strategy</span></div>
+      </div>
+    </div>
+    <div class="tl-item fi d3">
+      <div><div class="tl-period">2014 — 2018</div><div class="tl-co">Worldpay</div></div>
+      <div>
+        <div class="tl-role">Payments Product Owner</div>
+        <p class="tl-desc">Owned gateway orchestration supporting multi-tender acceptance, stand-in processing, reversals, and refunds. Automated 250+ operational workflows across onboarding, certification, and compliance. Designed vendor-agnostic POS middleware strategy.</p>
+        <div class="tl-tags"><span class="tl-tag">Gateway Orchestration</span><span class="tl-tag">Salesforce</span><span class="tl-tag">Visa OCT</span><span class="tl-tag">Sanctions</span></div>
+      </div>
+    </div>
+    <div class="tl-item fi d4">
+      <div><div class="tl-period">2005 — 2014</div><div class="tl-co">Wipro Limited</div></div>
+      <div>
+        <div class="tl-role">Principal Consultant</div>
+        <p class="tl-desc">Led large-scale merchant acquiring and card platform modernization. Executed least-cost routing strategies lowering merchant acceptance costs. Architected instant digital card issuance platforms incorporating loyalty programs and real-time servicing.</p>
+        <div class="tl-tags"><span class="tl-tag">Debit Routing</span><span class="tl-tag">Card Issuance</span><span class="tl-tag">Revenue Assurance</span><span class="tl-tag">CDCVM</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- BOOK -->
+<section id="book" class="book-section">
+  <div class="book-inner">
+    <div class="book-cover fi">
+      <div class="book-cover-label">Amazon · Kindle &amp; Paperback</div>
+      <div class="book-cover-title">The Intelligent<br><span>Payments Stack</span></div>
+      <div class="book-cover-author">Avik Nandi</div>
+    </div>
+    <div class="fi d2">
+      <p class="sec-label" style="color:rgba(255,255,255,.4)">Published Book</p>
+      <h2 class="book-head">The Intelligent Payments Stack</h2>
+      <p class="book-tagline">"The future of payments is not just about moving money — it's about how intelligently it moves."</p>
+      <p class="book-desc">For many years, financial systems have been built on fixed rails — card networks, bank transfers, cross-border wires. These systems helped global commerce grow, but were never designed for a world that is real-time, global, and data-driven.<br><br>This book explains how stablecoins, payment orchestration, and artificial intelligence are converging to transform static payment flows into programmable, intelligent systems — a clear, structured view of the future of finance.</p>
+      <a href="https://www.amazon.com/dp/B0GVL7Q4GG" target="_blank" class="btn-book">Read on Amazon →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTS -->
+<div id="clients">
+<div class="wrap fi">
+  <p class="sec-label">Client Work</p>
+  <h2 class="sec-head">Engagements that moved<br>the needle.</h2>
+  <div class="clients-grid">
+    <div class="cl-card fi">
+      <div class="cl-type">Global Payments Transformation</div>
+      <div class="cl-name">IRONMAN Group</div>
+      <p class="cl-desc">Designed dual MoR model combining Stripe and regional providers (dLocal) for licensee onboarding across regions lacking Stripe coverage. Led AI-driven orchestration vision, APM expansion (Klarna, bank transfers), and cross-border treasury flow design.</p>
+      <div class="cl-tags"><span class="cl-tag">MoR Architecture</span><span class="cl-tag">dLocal</span><span class="cl-tag">Reconciliation</span><span class="cl-tag">Klarna</span></div>
+    </div>
+    <div class="cl-card fi d1">
+      <div class="cl-type">AI & Payments Strategy</div>
+      <div class="cl-name">Visa</div>
+      <p class="cl-desc">Developed POV on agentic commerce and AI-driven payment ecosystems. Designed interactive demo experiences for Visa Spend Clarity. Contributed strategy around intelligent authorization layers, instant clearing, and settlement orchestration.</p>
+      <div class="cl-tags"><span class="cl-tag">Agentic Commerce</span><span class="cl-tag">Spend Clarity</span><span class="cl-tag">Auth Optimization</span></div>
+    </div>
+    <div class="cl-card fi d2">
+      <div class="cl-type">Payment Resiliency Architecture</div>
+      <div class="cl-name">MGM Resorts</div>
+      <p class="cl-desc">Designed dual-gateway intelligent routing system improving authorization rates and failover resilience. Enabled seamless card-present transaction routing across properties with real-time decisioning.</p>
+      <div class="cl-tags"><span class="cl-tag">Dual Gateway</span><span class="cl-tag">Auth Rates</span><span class="cl-tag">Card-Present</span><span class="cl-tag">Failover</span></div>
+    </div>
+    <div class="cl-card fi d3">
+      <div class="cl-type">Cross-Border Modernization · Confidential</div>
+      <div class="cl-name">Global Bank</div>
+      <p class="cl-desc">Implemented multi-rail payout architecture supporting 17+ currencies. Enabled real-time processing with API-driven orchestration and compliance-aware corridor routing across jurisdictions.</p>
+      <div class="cl-tags"><span class="cl-tag">17+ Currencies</span><span class="cl-tag">Multi-Rail</span><span class="cl-tag">Compliance Routing</span></div>
+    </div>
+  </div>
+  <p style="font-size:.78rem;font-weight:500;color:var(--g400);letter-spacing:.04em;text-transform:uppercase;margin-top:3rem;margin-bottom:1rem">Innovation Prototypes</p>
+  <div class="proto-grid">
+    <div class="proto-card fi">
+      <div class="proto-lbl">NeuroPay Sentinel™</div>
+      <div class="proto-title">AI-Driven Payment Intelligence Platform</div>
+      <p class="proto-desc">Real-time routing optimization, behavioral risk detection, and post-transaction explainability — an end-to-end AI decisioning layer for enterprise payment flows.</p>
+    </div>
+    <div class="proto-card fi d1">
+      <div class="proto-lbl">AI Stablecoin Route Advisor</div>
+      <div class="proto-title">Intelligent Rail Selection Prototype</div>
+      <p class="proto-desc">Corridor-based decisioning across cards, bank rails, and blockchain — optimizing for cost, speed, compliance, and liquidity in real time.</p>
+      <a href="https://ai-stablecoin-route-gob3.bolt.host/" target="_blank" class="proto-link">View prototype →</a>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="divider"></div>
+
+<!-- WRITING -->
+<div id="writing">
+<div class="wrap fi">
+  <p class="sec-label">Thought Leadership</p>
+  <h2 class="sec-head">Writing that shapes<br>the conversation.</h2>
+  <p class="sec-sub" style="margin-bottom:2.5rem">Published across Medium, Finextra, and Wipro.com on the future of payments, stablecoins, and AI.</p>
+
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="showTab('medium',this)">Medium</button>
+    <button class="tab-btn" onclick="showTab('finextra',this)">Finextra (14+)</button>
+    <button class="tab-btn" onclick="showTab('corporate',this)">Corporate</button>
+  </div>
+
+  <div id="tab-medium" class="pub-grid">
+    <a href="https://medium.com/@avikcincy/from-payments-to-intelligent-value-orchestration-how-ai-programmable-money-and-multi-rail-68a08d879faf" target="_blank" class="pub-feat">
+      <div class="pub-feat-body"><span class="pub-feat-badge">Latest · Medium</span><div class="pub-feat-title">From Payments to Intelligent Value Orchestration</div><p class="pub-feat-desc">AI agents, programmable money, stablecoins, real-time rails, and invisible commerce reshaping how money moves at machine scale.</p></div>
+      <div class="pub-feat-aside"><div class="pub-aside-num">01</div><div class="pub-aside-lbl">Featured</div></div>
+    </a>
+    <a href="https://medium.com/@avikcincy/from-stablecoin-infrastructure-to-agentic-commerce-853afaf7b2c6" target="_blank" class="pub-card"><div class="pub-platform">Medium · Pinned</div><div class="pub-title">From Stablecoin Infrastructure to Agentic Commerce</div><p class="pub-sub">Why payments become invisible in a machine-driven economy.</p><div class="pub-date">Mar 30, 2025</div></a>
+    <a href="https://medium.com/@avikcincy/the-missing-layer-in-stablecoins-testing-assurance-and-trust-in-an-irreversible-payment-world-57e333f69410" target="_blank" class="pub-card"><div class="pub-platform">Medium</div><div class="pub-title">The Missing Layer in Stablecoins: Testing, Assurance & Trust</div><p class="pub-sub">A new discipline the industry hasn't yet built.</p><div class="pub-date">Apr 15, 2025</div></a>
+    <a href="https://medium.com/@avikcincy/why-stablecoins-still-need-an-intelligence-engine-to-power-global-payments-a3fe9fcd860e" target="_blank" class="pub-card"><div class="pub-platform">Medium</div><div class="pub-title">Why Stablecoins Still Need an Intelligence Engine</div><p class="pub-sub">Stablecoins solved movement. They did not solve decision.</p><div class="pub-date">Apr 9, 2025</div></a>
+    <a href="https://medium.com/@avikcincy/the-stablecoin-acquiring-playbook-how-to-build-monetize-and-scale-the-next-generation-of-49ee4bdc3b08" target="_blank" class="pub-card"><div class="pub-platform">Medium</div><div class="pub-title">The Stablecoin Acquiring Playbook</div><p class="pub-sub">Build, monetize, and scale next-gen acquiring on stablecoin rails.</p><div class="pub-date">Apr 6, 2025</div></a>
+    <a href="https://medium.com/@avikcincy/beyond-agentic-commerce-the-rise-of-the-autonomous-money-stack-the-shift-no-one-is-fully-pricing-3684939e0c1e" target="_blank" class="pub-card"><div class="pub-platform">Medium</div><div class="pub-title">The Rise of the Autonomous Money Stack</div><p class="pub-sub">The shift no one is fully pricing in.</p><div class="pub-date">Apr 3, 2025</div></a>
+    <a href="https://medium.com/@avikcincy/the-agentic-commerce-stack-from-protocols-to-real-world-payments-81a136d8b275" target="_blank" class="pub-card"><div class="pub-platform">Medium</div><div class="pub-title">The Agentic Commerce Stack: From Protocols to Real-World Payments</div><p class="pub-sub">How AI agents transact reliably in the real world.</p><div class="pub-date">Apr 1, 2025</div></a>
+    <a href="https://medium.com/@avikcincy/the-emergence-of-intelligent-payment-systems-154044c1905d" target="_blank" class="pub-card"><div class="pub-platform">Medium</div><div class="pub-title">The Emergence of Intelligent Payment Systems</div><p class="pub-sub">From Stablecoin Architecture to AI-Driven Routing.</p><div class="pub-date">Mar 26, 2025</div></a>
+    <a href="https://medium.com/@avikcincy/the-stablecoin-stack-mapping-the-architecture-of-the-internet-financial-system-ac2d4ff16f5d" target="_blank" class="pub-card"><div class="pub-platform">Medium</div><div class="pub-title">The Stablecoin Periodic Table</div><p class="pub-sub">Mapping the architecture of the internet financial system.</p><div class="pub-date">Mar 25, 2025</div></a>
+  </div>
+
+  <div id="tab-finextra" class="pub-grid hidden">
+    <a href="https://www.finextra.com/blogposting/31048/the-stablecoin-orchestration-layer-who-controls-the-stack" target="_blank" class="pub-feat">
+      <div class="pub-feat-body"><span class="pub-feat-badge">Latest · Finextra</span><div class="pub-feat-title">The Stablecoin Orchestration Layer: Who Controls the Stack?</div><p class="pub-feat-desc">The future of stablecoin payments will be determined by the orchestration layer — not the tokens or chains themselves.</p></div>
+      <div class="pub-feat-aside" style="background:var(--g800)"><div class="pub-aside-num">14+</div><div class="pub-aside-lbl">Articles on Finextra</div></div>
+    </a>
+    <a href="https://www.finextra.com/blogposting/31158/stablecoins-and-the-rise-of-the-internet-financial-system" target="_blank" class="pub-card"><div class="pub-platform">Finextra · Mar 2026</div><div class="pub-title">Stablecoins and the Rise of the Internet Financial System</div><p class="pub-sub">The connective tissue between banking, payment networks, and decentralized finance.</p><div class="pub-date">Mar 16, 2026</div></a>
+    <a href="https://www.finextra.com/blogposting/31140/stablecoins-to-intelligent-payment-routing-building-an-ai-payment-orchestration-layer-prototype" target="_blank" class="pub-card"><div class="pub-platform">Finextra · Mar 2026</div><div class="pub-title">Stablecoins to Intelligent Payment Routing</div><p class="pub-sub">Building an AI orchestration layer — with a working prototype.</p><div class="pub-date">Mar 13, 2026</div></a>
+    <a href="https://www.finextra.com/blogposting/31092/stablecoins-and-the-financial-plumbing-behind-digital-money" target="_blank" class="pub-card"><div class="pub-platform">Finextra · Mar 2026</div><div class="pub-title">Stablecoins and the Financial Plumbing Behind Digital Money</div><p class="pub-sub">The hidden infrastructure behind every stablecoin transaction.</p><div class="pub-date">Mar 9, 2026</div></a>
+    <a href="https://www.finextra.com/blogposting/31021/stablecoins-as-state-machines-the-architecture-of-programmable-settlement" target="_blank" class="pub-card"><div class="pub-platform">Finextra · Mar 2026</div><div class="pub-title">Stablecoins as State Machines</div><p class="pub-sub">From transfer-based to state-based finance — value moving like software.</p><div class="pub-date">Mar 1, 2026</div></a>
+    <a href="https://www.finextra.com/blogposting/30956/the-missing-layer-in-stablecoin-payments-verifiable-intent-for-agentic-commerce" target="_blank" class="pub-card"><div class="pub-platform">Finextra · Feb 2026</div><div class="pub-title">Verifiable Intent for Agentic Commerce</div><p class="pub-sub">The bigger shift: who — or what — is authorized to move money.</p><div class="pub-date">Feb 23, 2026</div></a>
+    <a href="https://www.finextra.com/blogposting/30909/the-control-plane-for-stablecoins" target="_blank" class="pub-card"><div class="pub-platform">Finextra · Feb 2026</div><div class="pub-title">The Control Plane for Stablecoins</div><p class="pub-sub">Speed changes the experience. Governance changes the system.</p><div class="pub-date">Feb 17, 2026</div></a>
+    <a href="https://www.finextra.com/blogposting/14319/alternate-payments-amp-the-ecosystem" target="_blank" class="pub-card"><div class="pub-platform">Finextra · 2017</div><div class="pub-title">Alternate Payments & the Ecosystem</div><p class="pub-sub">The foundation of a long thought leadership journey.</p><div class="pub-date">Jul 2017</div></a>
+  </div>
+
+  <div id="tab-corporate" class="pub-grid hidden">
+    <a href="https://www.wipro.com/banking/adaptive-ai-in-bfsi-rethinking-fraud-defense-for-a-digital-era/" target="_blank" class="pub-feat">
+      <div class="pub-feat-body"><span class="pub-feat-badge">Corporate · Wipro.com</span><div class="pub-feat-title">Adaptive AI in BFSI: Rethinking Fraud Defense for a Digital Era</div><p class="pub-feat-desc">How adaptive intelligence systems are transforming fraud detection and risk decisioning across banking and financial services at enterprise scale.</p></div>
+      <div class="pub-feat-aside" style="background:var(--g800)"><div class="pub-aside-num">◈</div><div class="pub-aside-lbl">Wipro.com</div></div>
+    </a>
+  </div>
+</div>
+</div>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-sec">
+  <div class="contact-inner">
+    <h2 class="contact-head fi">Let's build the future of intelligent money movement.</h2>
+    <p class="contact-sub fi d1">Open to connecting with leaders, builders, and teams working on next-generation payments, fintech platforms, and AI-powered financial infrastructure.</p>
+    <div class="contact-links fi d2">
+      <a href="mailto:avik.nandi@outlook.com" class="contact-link">✉ Email</a>
+      <a href="https://www.linkedin.com/in/avikz" target="_blank" class="contact-link">LinkedIn</a>
+      <a href="https://medium.com/@avikcincy" target="_blank" class="contact-link">Medium</a>
+      <a href="https://www.finextra.com/bloggers/payments%20and%20trends" target="_blank" class="contact-link">Finextra</a>
+      <a href="https://www.amazon.com/dp/B0GVL7Q4GG" target="_blank" class="contact-link">📖 My Book</a>
+    </div>
+    <p class="footer-copy">© 2026 Avik Nandi · Cincinnati, Ohio · Product Manager, Wipro Limited</p>
+  </div>
+</section>
+
+<script>
+function showTab(id,btn){
+  ['medium','finextra','corporate'].forEach(t=>{
+    document.getElementById('tab-'+t).classList.toggle('hidden',t!==id);
+  });
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('v')});
+},{threshold:0.08});
+document.querySelectorAll('.fi').forEach(el=>obs.observe(el));
+
+const secs=document.querySelectorAll('[id]');
+const navAs=document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll',()=>{
+  let cur='';
+  secs.forEach(s=>{if(window.scrollY>=s.offsetTop-80)cur=s.id});
+  navAs.forEach(a=>{
+    const on=a.getAttribute('href')==='#'+cur;
+    a.style.color=on?'var(--g800)':'';
+    a.style.fontWeight=on?'500':'';
+  });
+});
+</script>
+</body>
+</html>
