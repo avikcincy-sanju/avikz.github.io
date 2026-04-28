@@ -47,12 +47,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:48px;display:flex;al
 .nav-links a:hover{color:var(--g800)}
 
 /* HERO */
-.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:8rem 2rem 6rem;background:var(--white);position:relative;overflow:hidden}
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:8rem 2rem 6rem;background:var(--white);position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 20%,rgba(0,113,227,.04) 0%,transparent 70%);pointer-events:none}
+.hero-inner{display:grid;grid-template-columns:1fr auto;gap:5rem;align-items:center;max-width:1080px;width:100%}
+.hero-text{text-align:left}
 .hero-eyebrow{font-size:.78rem;font-weight:500;color:var(--blue);letter-spacing:.02em;margin-bottom:1.25rem;opacity:0;animation:fadeUp .8s .1s ease forwards}
-.hero-name{font-size:clamp(3.5rem,8vw,7rem);font-weight:600;line-height:1.02;letter-spacing:-.04em;color:var(--g800);margin-bottom:1.25rem;opacity:0;animation:fadeUp .8s .25s ease forwards}
-.hero-sub{font-size:clamp(1.1rem,2.5vw,1.5rem);font-weight:300;color:var(--g600);max-width:600px;line-height:1.5;letter-spacing:-.02em;margin:0 auto 2.5rem;opacity:0;animation:fadeUp .8s .4s ease forwards}
-.hero-cta{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;opacity:0;animation:fadeUp .8s .55s ease forwards}
+.hero-name{font-size:clamp(3rem,6vw,5.5rem);font-weight:600;line-height:1.02;letter-spacing:-.04em;color:var(--g800);margin-bottom:1.25rem;opacity:0;animation:fadeUp .8s .25s ease forwards}
+.hero-sub{font-size:clamp(1rem,2vw,1.3rem);font-weight:300;color:var(--g600);max-width:520px;line-height:1.5;letter-spacing:-.02em;margin:0 0 2.5rem;opacity:0;animation:fadeUp .8s .4s ease forwards}
+.hero-cta{display:flex;gap:1rem;flex-wrap:wrap;opacity:0;animation:fadeUp .8s .55s ease forwards}
+.hero-photo-wrap{opacity:0;animation:fadeUp .8s .3s ease forwards;flex-shrink:0}
+.hero-photo{width:260px;height:260px;border-radius:50%;object-fit:cover;object-position:center top;box-shadow:0 0 0 6px rgba(0,113,227,.08),0 24px 60px rgba(0,0,0,.12);display:block}
 .btn{display:inline-flex;align-items:center;gap:.4rem;padding:.75rem 1.75rem;border-radius:980px;font-size:.88rem;font-weight:400;text-decoration:none;transition:all .2s;letter-spacing:-.01em;font-family:inherit;cursor:pointer;border:none}
 .btn-fill{background:var(--blue);color:white}
 .btn-fill:hover{background:var(--blue-h);transform:scale(1.02)}
@@ -152,6 +156,130 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:48px;display:flex;al
 .pub-sub{font-size:.78rem;font-weight:300;color:var(--g400);line-height:1.55;margin-bottom:1rem}
 .pub-date{font-size:.7rem;color:var(--g400);letter-spacing:.01em;margin-top:auto}
 
+/* RESEARCH */
+.research-card{display:grid;grid-template-columns:2fr 1fr;background:var(--g800);border-radius:24px;overflow:hidden;text-decoration:none;color:inherit;transition:transform .3s,box-shadow .3s;margin-top:3.5rem}
+.research-card:hover{transform:translateY(-4px);box-shadow:0 16px 60px rgba(0,0,0,.18)}
+.research-body{padding:3rem}
+.research-badge{display:inline-flex;align-items:center;gap:.5rem;font-size:.68rem;font-weight:500;color:#93c5fd;letter-spacing:.06em;text-transform:uppercase;margin-bottom:1.25rem;background:rgba(96,165,250,.12);padding:.35rem .85rem;border-radius:980px;border:1px solid rgba(96,165,250,.2)}
+.research-title{font-size:1.6rem;font-weight:600;letter-spacing:-.04em;line-height:1.2;color:white;margin-bottom:1rem}
+.research-abstract{font-size:.85rem;font-weight:300;color:rgba(255,255,255,.5);line-height:1.8;margin-bottom:2rem;letter-spacing:-.01em}
+.research-meta{display:flex;gap:1.5rem;flex-wrap:wrap;margin-bottom:2rem}
+.research-meta-item{font-size:.72rem;font-weight:400;color:rgba(255,255,255,.35);letter-spacing:.01em}
+.research-meta-item strong{color:rgba(255,255,255,.6);font-weight:500}
+.btn-ssrn{display:inline-flex;align-items:center;gap:.4rem;padding:.75rem 1.75rem;border-radius:980px;background:white;color:var(--g800);font-size:.85rem;font-weight:500;text-decoration:none;letter-spacing:-.01em;transition:all .2s;font-family:inherit}
+.btn-ssrn:hover{background:var(--g100);transform:scale(1.02)}
+.research-aside{background:linear-gradient(135deg,#1e3a5f 0%,#1a2f4e 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:2.5rem;position:relative;overflow:hidden}
+.research-aside::before{content:'';position:absolute;top:-40%;right:-30%;width:90%;height:90%;background:radial-gradient(circle,rgba(96,165,250,.15) 0%,transparent 70%);pointer-events:none}
+.research-aside-num{font-size:4.5rem;font-weight:700;color:rgba(255,255,255,.08);line-height:1;letter-spacing:-.08em;font-variant-numeric:tabular-nums}
+.research-aside-lbl{font-size:.68rem;font-weight:500;color:rgba(255,255,255,.4);letter-spacing:.06em;text-transform:uppercase;margin-top:.5rem}
+.research-aside-icon{font-size:2.5rem;margin-bottom:auto;padding-top:.5rem;opacity:.5}
+
+/* FEATURED IN */
+.featured-bar{background:var(--g50);padding:2rem;border-bottom:1px solid var(--g100)}
+.featured-inner{max-width:1080px;margin:0 auto;display:flex;align-items:center;gap:2.5rem;flex-wrap:wrap;justify-content:center}
+.featured-label{font-size:.68rem;font-weight:500;color:var(--g400);letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;flex-shrink:0}
+.featured-divider{width:1px;height:20px;background:var(--g200);flex-shrink:0}
+.featured-logos{display:flex;align-items:center;gap:2.5rem;flex-wrap:wrap;justify-content:center}
+.featured-logo{font-size:.82rem;font-weight:600;color:var(--g400);letter-spacing:-.01em;text-decoration:none;transition:color .2s;white-space:nowrap}
+.featured-logo:hover{color:var(--g800)}
+
+/* NOW STRIP */
+.now-strip{background:var(--blue);padding:1rem 2rem}
+.now-inner{max-width:1080px;margin:0 auto;display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+.now-dot{width:7px;height:7px;border-radius:50%;background:white;opacity:.7;flex-shrink:0;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:.7;transform:scale(1)}50%{opacity:1;transform:scale(1.3)}}
+.now-label{font-size:.68rem;font-weight:600;color:rgba(255,255,255,.6);letter-spacing:.08em;text-transform:uppercase;flex-shrink:0}
+.now-text{font-size:.82rem;font-weight:400;color:white;letter-spacing:-.01em;line-height:1.5}
+
+/* SPEAKING */
+.speaking-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:3.5rem}
+.speak-card{background:var(--g50);border-radius:18px;padding:2rem;transition:transform .3s,box-shadow .3s}
+.speak-card:hover{transform:translateY(-3px);box-shadow:0 8px 40px rgba(0,0,0,.07)}
+.speak-icon{font-size:1.75rem;margin-bottom:1rem;display:block}
+.speak-type{font-size:.68rem;font-weight:500;color:var(--blue);letter-spacing:.04em;text-transform:uppercase;margin-bottom:.5rem}
+.speak-title{font-size:1rem;font-weight:600;letter-spacing:-.02em;line-height:1.35;color:var(--g800);margin-bottom:.5rem}
+.speak-desc{font-size:.8rem;font-weight:300;color:var(--g600);line-height:1.65}
+.speak-cta{display:inline-flex;align-items:center;gap:.35rem;margin-top:2rem;font-size:.8rem;font-weight:500;color:var(--blue);text-decoration:none;letter-spacing:-.01em;transition:gap .2s}
+.speak-cta:hover{gap:.55rem}
+
+/* INTELLIGENCE LAB */
+.lab-section{background:var(--g800);padding:8rem 2rem}
+.lab-inner{max-width:1080px;margin:0 auto}
+.lab-head{font-size:clamp(2rem,4vw,3.2rem);font-weight:600;letter-spacing:-.04em;line-height:1.07;color:white;margin-bottom:1rem}
+.lab-sub{font-size:1rem;font-weight:300;color:rgba(255,255,255,.45);max-width:560px;line-height:1.65;letter-spacing:-.01em;margin-bottom:3rem}
+.lab-frame-wrap{border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,.08);box-shadow:0 40px 80px rgba(0,0,0,.5);position:relative}
+.lab-frame-wrap::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.12),transparent);z-index:1;pointer-events:none}
+.lab-preview{display:block;text-decoration:none;color:inherit;transition:transform .3s}
+.lab-preview:hover{transform:translateY(-3px)}
+.lab-preview-top{background:#111113;padding:1rem 1.5rem;display:flex;align-items:center;gap:1rem;border-bottom:1px solid rgba(255,255,255,.06)}
+.lab-preview-dots{display:flex;gap:.45rem}
+.lab-preview-dots span{width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,.12)}
+.lab-preview-dots span:nth-child(1){background:#ff5f57}
+.lab-preview-dots span:nth-child(2){background:#febc2e}
+.lab-preview-dots span:nth-child(3){background:#28c840}
+.lab-preview-url{flex:1;font-size:.72rem;color:rgba(255,255,255,.25);letter-spacing:.01em;font-family:monospace;text-align:center}
+.lab-preview-launch{font-size:.88rem;color:rgba(255,255,255,.25)}
+.lab-preview-body{background:linear-gradient(160deg,#0d1117 0%,#0a0f1a 100%);padding:3.5rem}
+.lab-preview-live{display:inline-flex;align-items:center;gap:.5rem;font-size:.68rem;font-weight:500;color:#4ade80;letter-spacing:.06em;text-transform:uppercase;margin-bottom:1.5rem;background:rgba(74,222,128,.08);padding:.35rem .85rem;border-radius:980px;border:1px solid rgba(74,222,128,.15)}
+.lab-live-dot{width:6px;height:6px;border-radius:50%;background:#4ade80;animation:pulse 2s infinite}
+.lab-preview-title{font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:600;letter-spacing:-.04em;color:white;margin-bottom:1rem;line-height:1.1}
+.lab-preview-desc{font-size:.92rem;font-weight:300;color:rgba(255,255,255,.4);line-height:1.8;max-width:620px;margin-bottom:2rem;letter-spacing:-.01em}
+.lab-preview-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2.5rem}
+.lab-preview-tags span{font-size:.68rem;padding:.3rem .8rem;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:980px;color:rgba(255,255,255,.4);letter-spacing:.01em}
+.lab-preview-cta{display:inline-flex;align-items:center;gap:.4rem;padding:.85rem 2rem;border-radius:980px;background:var(--blue);color:white;font-size:.88rem;font-weight:500;letter-spacing:-.01em;transition:all .2s}
+.lab-preview:hover .lab-preview-cta{background:var(--blue-h);gap:.6rem}
+.lab-meta{display:flex;gap:2rem;margin-top:1.75rem;flex-wrap:wrap}
+.lab-meta-item{font-size:.72rem;font-weight:400;color:rgba(255,255,255,.3);letter-spacing:.01em}
+.lab-meta-item strong{color:rgba(255,255,255,.5);font-weight:500}
+
+
+/* IMPACT STRIP */
+.impact-strip{background:var(--g800);padding:4rem 2rem}
+.impact-inner{max-width:1080px;margin:0 auto}
+.impact-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:0;border:1px solid rgba(255,255,255,.07);border-radius:20px;overflow:hidden}
+.impact-item{padding:2rem 1.5rem;text-align:center;border-right:1px solid rgba(255,255,255,.07);position:relative;transition:background .2s}
+.impact-item:last-child{border-right:none}
+.impact-item:hover{background:rgba(255,255,255,.03)}
+.impact-num{font-size:1.9rem;font-weight:700;letter-spacing:-.05em;color:white;line-height:1;margin-bottom:.4rem}
+.impact-num span{font-size:1.1rem;font-weight:500}
+.impact-lbl{font-size:.62rem;font-weight:400;color:rgba(255,255,255,.35);letter-spacing:.04em;text-transform:uppercase;line-height:1.4}
+
+/* TOPIC CLUSTER */
+.topic-wrap{margin-top:3.5rem}
+.topic-primary{display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:.75rem}
+.topic-secondary{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:.6rem}
+.topic-tertiary{display:flex;gap:.45rem;flex-wrap:wrap}
+.topic-tag{display:inline-flex;align-items:center;border-radius:980px;font-weight:500;letter-spacing:-.01em;transition:all .2s;text-decoration:none;cursor:default}
+.topic-tag.primary{font-size:1rem;padding:.65rem 1.5rem;background:var(--g800);color:white;box-shadow:0 4px 20px rgba(0,0,0,.12)}
+.topic-tag.primary.blue{background:var(--blue);color:white}
+.topic-tag.secondary{font-size:.82rem;padding:.5rem 1.15rem;background:var(--g50);color:var(--g800);border:1px solid var(--g200)}
+.topic-tag.secondary:hover{background:var(--g100)}
+.topic-tag.tertiary{font-size:.72rem;padding:.35rem .9rem;background:transparent;color:var(--g600);border:1px solid var(--g200)}
+.topic-divider{font-size:.68rem;color:var(--g200);padding:.35rem 0;align-self:center}
+
+/* PUBLICATION TIMELINE */
+.pub-timeline{margin-top:3.5rem;position:relative}
+.pub-timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,var(--g200),transparent)}
+.ptl-item{display:grid;grid-template-columns:140px 1fr;gap:2rem;padding:1.75rem 0 1.75rem 2rem;border-bottom:1px solid var(--g100);position:relative}
+.ptl-item::before{content:'';position:absolute;left:-4px;top:2.2rem;width:9px;height:9px;border-radius:50%;background:var(--g200);border:2px solid white;box-shadow:0 0 0 1px var(--g200)}
+.ptl-item.highlight::before{background:var(--blue);border-color:white;box-shadow:0 0 0 1px var(--blue)}
+.ptl-date{font-size:.72rem;font-weight:500;color:var(--blue);letter-spacing:-.01em;padding-top:.15rem}
+.ptl-platform{font-size:.65rem;font-weight:400;color:var(--g400);letter-spacing:.02em;margin-top:.2rem}
+.ptl-title{font-size:.92rem;font-weight:600;letter-spacing:-.02em;color:var(--g800);line-height:1.35;margin-bottom:.3rem}
+.ptl-sub{font-size:.78rem;font-weight:300;color:var(--g600);line-height:1.55}
+.ptl-badge{display:inline-block;font-size:.6rem;font-weight:500;padding:.2rem .6rem;border-radius:980px;background:rgba(0,113,227,.08);color:var(--blue);letter-spacing:.04em;text-transform:uppercase;margin-left:.5rem;vertical-align:middle}
+
+/* SUBSCRIBE */
+.subscribe-sec{background:linear-gradient(135deg,#f0f6ff 0%,#f5f5f7 100%);padding:5rem 2rem;text-align:center;border-top:1px solid var(--g100)}
+.subscribe-inner{max-width:540px;margin:0 auto}
+.subscribe-head{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:600;letter-spacing:-.04em;color:var(--g800);margin-bottom:.75rem;line-height:1.15}
+.subscribe-sub{font-size:.92rem;font-weight:300;color:var(--g600);line-height:1.65;margin-bottom:2rem;letter-spacing:-.01em}
+.subscribe-links{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap}
+.sub-btn{display:inline-flex;align-items:center;gap:.45rem;padding:.75rem 1.6rem;border-radius:980px;font-size:.85rem;font-weight:500;text-decoration:none;letter-spacing:-.01em;transition:all .2s;font-family:inherit}
+.sub-btn.fill{background:var(--g800);color:white}
+.sub-btn.fill:hover{background:#000;transform:scale(1.02)}
+.sub-btn.outline{background:white;color:var(--g800);border:1px solid var(--g200)}
+.sub-btn.outline:hover{border-color:var(--g400);transform:scale(1.02)}
 /* CONTACT */
 .contact-sec{background:var(--g50);padding:8rem 2rem;text-align:center}
 .contact-inner{max-width:600px;margin:0 auto}
@@ -176,10 +304,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:48px;display:flex;al
   .tl-item{grid-template-columns:1fr;gap:.5rem}
   .book-inner{grid-template-columns:1fr;gap:3rem}
   .clients-grid,.proto-grid{grid-template-columns:1fr}
+  .research-card{grid-template-columns:1fr}
+  .research-aside{display:none}
   .pub-grid{grid-template-columns:1fr}
   .pub-feat{grid-column:1;grid-template-columns:1fr}
   .pub-feat-aside{display:none}
   .hero-stats{gap:2rem}
+  .speaking-grid{grid-template-columns:1fr}
+  .lab-frame-wrap iframe{height:500px}
+  .featured-divider{display:none}
 }
 </style>
 </head>
@@ -193,8 +326,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:48px;display:flex;al
       <li><a href="#expertise">Expertise</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#book">Book</a></li>
+      <li><a href="#research">Research</a></li>
       <li><a href="#clients">Clients</a></li>
       <li><a href="#writing">Writing</a></li>
+      <li><a href="#pubhistory">Timeline</a></li>
+      <li><a href="#lab">Intelligence</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </div>
@@ -202,29 +338,80 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:48px;display:flex;al
 
 <!-- HERO -->
 <section class="hero">
-  <p class="hero-eyebrow">Product Manager · Wipro Limited · Cincinnati, Ohio</p>
-  <h1 class="hero-name">Avik Nandi</h1>
-  <p class="hero-sub">Payments Platform & AI Strategy Leader.<br>Building the infrastructure for how money moves intelligently.</p>
-  <div class="hero-cta">
-    <a href="https://www.linkedin.com/in/avikz" target="_blank" rel="noopener noreferrer" class="btn btn-fill">Connect on LinkedIn</a>
-    <a href="https://medium.com/@avikcincy" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">Read My Writing</a>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <p class="hero-eyebrow">Product Manager · Wipro Limited · Cincinnati, Ohio</p>
+      <h1 class="hero-name">Avik Nandi</h1>
+      <p class="hero-sub">Payments Platform & AI Strategy Leader.<br>Building the infrastructure for how money moves intelligently.</p>
+      <div class="hero-cta">
+        <a href="https://www.linkedin.com/in/avikz" target="_blank" rel="noopener noreferrer" class="btn btn-fill">Connect on LinkedIn</a>
+        <a href="https://medium.com/@avikcincy" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">Read My Writing</a>
+      </div>
+    </div>
+    <div class="hero-photo-wrap">
+      <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAGQAZADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDy+YYnb61PCBgcVFcD9+1WIRkVsjJ7FmNe+asR1AgPFTIcdqaILsbcU5n4NVUfAFDS8EZpkDpH6iq0re9I8mageTrz0qWjSO5Dckn3rNuBmr8x61TlWs2dcEVlX5h9a9A8BxZ2cVwgX5hXpfw+hzGjY9K567901juenaLFiNeK37ZOnas7R4v3a8dq24E6V5yep0WJY14pXHympEXiiRflraLIaOf1o4RvpXDavIdzAV3OuA7GrhNSQvMRwPc9K7qEtDgxEDufgwcxTH/br2G3+4K8k+EMMkMMgdCuXyCR1r0efxDolhCz32p21qFHPnPsP4A8n8K1erIp2jHU2R0pSRXl3iv4zeEtNgY2Vyb8j+OFyig+mSDz9RjmvI9Z+KXirVHMFj4+tLKWQH/RVKIxBPAEhUAHHXkVSpSYOsump9W8elHPYH8q+Pb3UPiSA3ka5r4MYDtE9+jPycB1Bc/Kc8EZrCvvGXiSxSYaj4n8Swt5nlubhpAu7BztYEDjB6dar2PmHtX2Pt2SWOPHmOEzwN3FPDA9DXwNJ8RPFxs5YbXxzq9zFIdjElyGU8YJ3EDr6Gt34e/G3xb4WvHIuJNZ0xNq3EVxcmZVwMAqSAyHA9wcdKl02PnfVH25mkya8w+Hvxr8H+M7kWEF6mm6htDeVcOpV/ZX6E+3Wu3g8RaY2sLo8l5B9rkBMQR8rLjnaD0D4529ccjIqHFjVSPc2aWkBzS0jQKKKKACkNLSHpQAxzgZrL1C+SLOWxV+8YrEx9q8G+Jnj250zxBJpkcJJAB3Z4pN2RLZ3XiXXYooH+cdK4bw1em98YQPnIya4yfWr7VGDTSEKewrp/h7HjxJbfjXn1p3OinFnvOnr+6WroHFVbAfuV+lXBXVTXumchMUxhxUuPemsOK0aEmZOqL+6avlv9oxD9qiI/vV9U6omYWPtXzH+0VDmWFv9qjDaVUTX+A8OBYUjucVe8njpUEsJ9K9g4rm/wDD2Q/bwPevo/wiT9nQ+wr50+HFuz6oMDgGvpLwvCUt0HTiuTEMIK8jsrBsAVrW7fMv1FY9l8q1pW7fMv1FclzqSPiG4H+kNU0I6Uyb/XGpY+lbozZPHUynBqOMYFSlcd6aJEZsCoXfg06TpVaZsA80yNhGftmoix9aiZ+famh80M1juSOaiYc08nim9awZ1wIwuTXqvw6izbx/SvLh1Fes/Dhf9FjrmxHwmsNz1HSowIxxWvEntVDS1+QVrxLXDFG9xUTikkX5elTKOKSUcVohHOa3HlWxxXE3kMjzlVhd8ZxsHIH9a7TxZeDT7NrkxPKB/Cgz2rxPxF4t1i7mS3t71dMadxhN6tvPXaccjA7d/eu3DU3JXOLESSdjvZvGSeGmFveQwrK0f7tUXJ5HBYZxz715L8RPiJJfaiyanpsF+jgKJgGSSI+nX5cenSsTUPFkETSgTwTiUFGMSuhcNyRzkHkA8+lc7qGo2Nxue6iLxyAZeG5dXKjOTgk47+ozxgV6UYKK0ON3b1K6eIrd7/zLC5ntrnlP9IbzVf8A2eRioLu+gWExNbhHcb8qoCn1xjgH/wDXVXxV4f8As1sl/pUv2q0KByQmHUHvgdRxz3B/Oq2n3kep2BsrqY+aQJLaXGSrrwQfYii7vZlWVro9P8Ea6+veHDYz3Sx6hpu9baeUcMjr9yQHqOmfoG7GqGo+JtU0OTfaXTReX+7vdPucPtbjpuGG9if8DXC+D7+fT9QntXkCSh1bc7cbQCCo/wC+gR24rqNVkGuWErbYpr20yybzzJF/FG36EHt+FJS6Mbj1Rvadq3hLWFjvb3QYlMmVN1YExyqccnAwGI7q2fx6Vsan8PY/EunxXPh3V7HUI2XbsMaWtyo/3lARz+ANeHWt/NpF39psdwgY4kgkOR7o3qPQ9RXWQ+IJ9M8rVdGvJ47Rxvlhz84HQke6nI9DU83Qrl7EWoeFNc0G5dZIH89SSbZ2JuFAON2Bxzg4wckc4xXV6J8Q/F+j+FovDV3dwxWkLpPp8V/Axlt5FbcrxMvI2n+9xyR7Vrx+M5PEnhuMT3cTSRnypZlQiS3JOIpAM/MhPyke/Y159c6lYx3r6ZrmlpZXZACXVuvmQyA9CUfqCR/CVOeMcYpNdSWlLRo+v/gT8crHxc0Gga9JDb6yE2iYELHcMO2D0Y/kfavblNfmlZWt3b3o1PQdQtrx4iRsgXypIgOoKsAT9fzr7t+CPjqHxh4RsRcxvbatDbL9pgcYLAfL5g9j/Wspx6oqEnF8rPQKWkHWlrM2CkNLSGgCvdjMR+lfL/xqth/wnW4DrEP519RXAzGfpXzf8bo8eMojxzD/AFrOrsJbnM6ZFgAkV3PgJP8Aiobbj1/lXI6cvC12fgVf+Kgtfqf5V5s3qdsdj3GyGIl47VaqCzH7sfSrFelTXunJLcSg9KU0lW0Ip3q7oWHtXzd+0Rb/ACxPjgPX0vcLlCK+e/2iogLBSR0kqKbtWQqv8NnhKQgr0qKeAelXoQMUTKK9e5550nwpsA180hHGa960dQsagV5D8KY1CH13V7Dp5AArgru8joorQ37Q/KK0IG+ZfqKybV8Dk1oW7/Ov1FYXNz4vkBMhNSxU0oS3frUsaEda6TBk8fYipD0NRr0p+eMU0IhmNUZjwavTdKoXHerRDKjE7qchzTX60sfBqXsawJaMcUClrBnXEFA3CvWvhv8A8esdeTD7wr1v4c8W0f0Fc2I+E2hueraZ9wVrxVj6Yf3YrXhPArhibFhRTZfu9KevSud+IWsXGi6A01kjS307eRaxrGXzIQTuwOcKAzH2XHetYq+hLdlc4D4lfEOLTdTfRoLIJPynm3EZkRm7hVXJODxXgmqWNjqN5cSxa3YxTTSl44ApTnPOAwz6nrWv42ttOu7u4vDq13cSxuPMu9T8xLmVgRlUjyEjQHrxnkZHc8L4hvyt0fs05TaCykPubnHIJGfXpXr0YqMTzqjcpEfiDQ9RilmlZIZFUAHypV3A44OAP0rnZruURiOXcssZJR8evUfjir9vrdygMUsrSjHXoR7e3r6e1Q6jNDOP3mWB+7IODj0YdK0dmtCVdbl7w/rDSac1qPlmgLMoXqyH7w+oIBH1qhqKIXS7snCbjvYLwA3Zh6Z7/nWUhks7yOeJiGU5G7o3qKnkmxLm3JCt88YP6of8/wA6SnpZj5dbomFyJJ4pPlVmDJkHsRjB+mRitKy1SbTNct7osywzgLIe3rn8D/WudlKs52/KGOeONpq1qDtJZwHO7k/h0qOYqxb8TxKl/J5a4DksoBzlT298HI+lVtF1NrWLawD+VJv2nkMp4df0B/CmXVwZraPJLFBuU98dD/IGqJ+aUNgAsOcfzpXGdBDqI0XX47i3+azkU7oz3jbkqfp1HuK19ZntNUQ2N4cxxS7oZlGXSOQDDD1Abgj3HpXHTsZYYWP3kTHT3NaNjJI4CFWyI16DJGD/AIH9BTUhWI7mWaG682Od1m+4xYgBsdD9a9m/Zw+IN5onjXSheXckSXFx5d4XckGIjH3QDgA/NwOua8lOkyTrJK+5UOccffHUV0/gKTR9I1WyvpopXlV2jCCVQiDHf3q6ceZmVfSPmfpFp17Z6hbLc2N1Dcwt0kicMp/EVZr5W/Z3+JE2j69/wjOoiAW15dlUAyTAS3GDwCpyM55H419UA5Gayq03Tdh0KvtI+YtIaKWszcilGUP0r54+OaY8W2xI6xH+dfRD9D9K8A+OqZ8UWZ9Yj/OsqvwhHc5TTl4Fdn4IH/FQWh46/wBK5PT14Arr/BYx4gtP97+leXJ6nctj260/1Y+lTioLX/VD6VYr1obHFLcKSlpMVYiOUZFeB/tJJt0ctj/loK99k6V4T+00uPDkrD+FxWV7VYhPWmz57hk46g09nz6VQhlHHNSeb716lzzT0H4aXgilMZPU17LpsoZFINfPHhK6aK5DKe9e0+GdSWaBPmwQK5K61udFGXQ7e3fpWhbP86c9xWJazAgc9a07V8yIPcfzrmudSPlaOzyeRUv2TA6fhW2lp7cU9rX1FX7Q6JYSyOaliKHpUda9/DtzxWVIMNW8JXOCpDldiCbpVCboau3B4qhNzmtUYsrN14pUofvSKamRrAmFKaZk07PArCR2QFHJFes/Dw/6On0FeSr94fWvV/h6f9Hj+lc1f4TSG56zpZ+Ra2ITWJph+Ra2Ya4omxcjrE8Zaet5pom3lXtyz7h1VSjKSPpnOO+K2kPFVtXtoLuzaC4BMZIJUH72OgPqPatE7Cauj5T8eanYz6OkLWYjOzbHGJAPLfks75G4s3JHbDZOTXjesLJkoWB2jjB6D0Br1z9oDUr3/hIbqNpBH5SmNT/dRQBx/U+pwOleZ/DTSJvEXiMWbCR4cgFcnJz616jqKFJNnFTpudSyOTZ2VjuJz645pBOy+2eoPT619KeLvgXpdvZJJafaYpmXJ+cMmfTkcfnXmuo/CbUoHJUgxjuaw+tQW7sdCwk3tqeb+Yrrj5RnsaZkhSuD1ypHau8T4c6gW2rj6kVKvw6u0PzNnH90UvrdLuNYKr2OAYNK+Rkk9eOtWEhkMQjZMg9K9M0n4cyPKC7MCvUAdfauy034d2kaKrIrPuBJI6fSpli6a2ZccBUe54TbaZdSgbI2I7YrRtPDN7JysDHjgkdq+gbXwNYxEkQjg1onw7bR25jCgKSGwBxxUfW77I2WCS3Pn638H3LuI3TaAcAE8mt7T/DQhY7UG/1IzjtXouoWSJM2Ao57CooIU4BHfOcVzzxkjphg4JHKX3hzzbJ1YAts5J7/AOf61wVukuja6WdR5UbbihHBXGDx3OM17tNCrQfMOSK898eaH5o81FIYAg464rowmL96zObGYNODaKGj3OJZpbe8P+vV4nBKMEC5Ujvnjr7Cvuz4N6/J4i8C2OoT373szRgSSNAUwwGCM/xcjqK+EPDast1bB4f3pYxODyNoUgDH4nn2FfX37Jnmf8K7lOZPL+1Mu1ptyhh1ITGUyME88nmvXr2lBSPnqacK1j2SkPWnU09a4jvGv0P0rwn45r/xUVkcfwN/Ovd2rxD44pnXbI/7DfzFY1vhHHdHI2K8Cuq8HjGu2h7b652xT5Aa6TwoMa3af79eU3qegl7p7Xa/6sfSp6gtP9Wv0qevYh8J58twoNFBqxEcn3a8M/ad48K3LehX+de6P92vDP2nv+RSu/w/nXNWdpRfmV9iR8uxyY9aeZh1qmHwKY8nHU13+0PO5TrPDEoL9e9elaBcyQ7Sp4ryTwvPiUD3r1LQmV41OaynMuC1PQtL1PcoznNdHp92HePB6sP51w+nrwD6V0OmuVkj6/eH86xdjrimcAlqPSmTW2ATitsQDHSq9zFgVkmfWVKCschqsW0HiueuPvGup1wAA1yd0fmIHrXXReh8xjYcsyncHGapSkYNWbhuOtUpTXSjzupE5pFNNY80A0pG0CbPHNOHSoxUi9BWDOqAqffH1r1b4fHECcV5Uv3hXqXgEjyUFctf4TWG56tph+Rea2oT0rB0xvkX6Vt254FcUTdl6M8UrnHJqJDSyNwa0Qj5N/aT0qW18S6jcKrMspjbJ6MxB/QelW/2VPDu2OTV7iPLSy4Vj6CvSfj54YbWrWC5ReAQrnAx3xz64NaHw20qHQtBsrWNQuEBwO+a1xNS9OKJwkLTkzsfEEa3OxSDhV4/OuR1awWQbGCdeSBWzq1++9jjIHrXPXWpgllLAGvJxNVNnsYak0im+mWwABQDjniqlzZQInCfpV03iHgEmoXkDt16e9csTss0Q2dvHEchVyeSfWruVUgqB9aqbyPTHemvI2B0wO4NdEGZyiaSzKFwcc1VvbuNIWwcYHfvWfLccevtmsjUbkkEAtkdutbqbM3BFLUrhXnJG0j3NNtG6DOTVIhnlJGGPqe1W7ONlJLH34qGhliaUKhQ1kakFmj2nt0q5dMQOcGs6Z+Qea0paMyq7FGy010vo50T72Dx1+o/I19R/s1xLD4U1CMqvmi8y7DvlAR+HXH1r5205htOwcDB5HQ+1fSPwDRItL1CKPGN0bcDA+7/ADr3adTmp2Pmq9PlrJnppo60UhpDEavFvjev/E4sT7N/SvaW6V458bE3apYn2YfyrGv8BVP4kcnZj5RXQ+GuNYte37wVh2iHatbvh8bdUtT/ANNBXkvc9C2h7NZ/6pfpViq1kf3K/SrNezT+E86W4UmaU02rEI/3a8O/abGfCN59B/OvcJOleH/tMkf8IhefQfzrkxG6LS9yR8m0x804EetMkYV1JHn3NXQCRKCDzmvTfDVwdigmvL9DbEo+tejeHDlVNRUVi4bnoulTZUV0Fi2ZYz/tD+dcxo54FdTpoBlj/wB4fzqE9TuitDJMfHaqF4MA1eeQY7Vm3z8Gs0fY1XZHJeIjgNXIXH3jXV+IDndXJzg5NdtHY+Qx7vMpXB9aoymrtzxVCY+9dCPNI2NNU800nk0ik5HapZrEsoeKmXpVdCTU69KxZ1R2HqORXp/gMjykrzBeor0vwI37tAa5q+xrDc9V0s/Itbdu3yisHSj8grcgOQK4Ubl1DRI3y01KbMflNWJmF4phS4075oVl2SgncOBx1rJSUIF2jgL+Fbeq/vLC6jwW4DY7cGuVM7BeUapxD92JthI3kw1SYyBirEDJIyeprlr0SZOAQSeAOa3/AJ5HIx14Ht7Uo0kzNnAPua8qonJns02o6HM2/mE5+Y5754q4iv15A9q6KLQgEyQBTzo5AGMflRGmy5VIs57b6sT7GmvCXGQCSK3RpjK3t71Yi0xepxn6VvCDM3NHJyWkrDGzA9TVC5sJdp4yegNehrp8CA5UAiqt1axBeAp+tbcljL2h5tJYSKeQQP8AaqOQGNTXb3dhAykscmsHU9ILKWgcMcZ61Liw50clcPly2cDtVVzvz357VZ1FJYJCsqEdqqqAW3DP4VpFGcy3pUmydS2TyM/TvX0f+z7KTa30LqQyInU5JAJx/MV82xpkjIJyeOPevoT4CFl1i9TbtH2cA55zgjGPpXpYaV1Y8XGxtJNHslFFFdByiN0ryb4xR79Rsjj+9XrJrzL4pxiS/tT6E1z4p2ga0VeaONtIflFbGjx7b+BsdHFQ28GFFaFgmLmI/wC2K8m+p6LWh6jp5zCv0q5ms7TWzCv0q+pyK9ik/dPMmtRaKKCa1uSMlOFNeF/tNvjwhdc9RXt9w3yH6V4N+09Jjwhc/SuSprNLzLelNnyl5h9qaz8daq+b9aa03FeryHk85u6JJ+8H1r0nww/yivKdFl/ejnvXpPhaQnbWNWGhrTlqen6KeBXWaYf3kXH8Q/nXHaG/C11+lt+8i/3h/OuW1j0IPQ5lp8jrVG8kyDUKTFhnPNNmbcpqIo+pxNZWOf1n5s1zs6cmul1QDmsKdRzXZT0R8piZc0jGvEwDWVPxmtu8HFYl2cE81ujkKpPWhTzTGOKVDzQzSBaj681OnSqqHpzViM5FYM6o7E69RXo3gYny0rzZTyBXo/gY/Kn4Vz1vhNI7nqukH92tb1seBWDpP3BW5b9BXAjoLqnimz/cJpydKZccIatCMi4c75Y+D5kbLz0rkLhS02xQc5xXZXmo6LBbXbQyRXd3ZOqXQEn+oZhkAgexrltVuLTSnuNSvWVYLf58Ejn0Aqa0eaKSN8PL2cm5KxoW9na2NmLm+lWPd90E4qtLq+nLzFPGR2AavmP4jfErW/EWszSwzSJArYijQ/Ko7f8A664yXxHr4P8Arrn8zWjwKa3sT9ead7H2QfEFsvDTx59M809NctmHEin6V8Xf8JLrpfJurrP1NdFoHi/xBGVWSaUrnq2ah4GUVdSNY5hGTs4n1idShMZbd+VV7nWYolyXCjsc15PpHit5NM+dwZMcKe9UNd164uNIlSKQ+YDkVyqnPmsztdSPLdHfa78RtE01f314N3Pyjk8V574h+N1sCyWMLSHszcV5prFneXs7PJIB3LMen+cViS6RaxSBJrzLeiDJr0qWHpx31PKrYirJ6aI7HVPixrl7wkhhH+yag0T4la3YXiyvOZo85aNzkH1rnIbPQIyPtEtwT9QK07Wx8NTEATyJnoXP9eldD5ErcpzJVG78x63o3i3QvFtv5IxbXuOI3PU+1VjGY5yncdK8+i8O2ltOk1rdY5yDn+oru9Pl+0WsYMhklTALHqR71w1acVrE9CjOe0jVtYWmQBB8+4Yx9a7/AMIeJL3w3q2+xkhE0kbK5lXcACOo7ZBFchoqKXXcA2eozjNR3OotPPJsj/0lh5aoOAO2KdKfLTckRVpqpVUXsTeP/iPrOm6zFPp1/c3V9G/mS3LTMCnsMcfh0r6c+EXjKHxz4Hs9bUKtwR5V0g/hkHX8D1r5B8VaFLbpFdSJjzPlkz616p+xVqsiXev+H5GO1VW4Qe4bB/Qipw+JlKpZnfj8uowwiqU1qtz6YbpXnvxBTzL+346Zr0FzgGuC8Y/vNSjHoDXRi37h4VD4zAji4qxbpiZPZhUyx/KKdGmJAfcV5aWp6HQ7bS3/AHSj2rSVuKxdMfEY+laaPx1r0qUrI8+a1LOeKazVGXpjv71q5kcoy6fCGvAP2oZD/wAIpOo7ivc72X5DzXz1+05chtBkjz1rGPvVY+oVtKUj5Y3U1mNLjmmsOa9+x89c0dHc+YPrXpXhV+F5rzLSf9YK9E8MPjbWNSOh00pHqmgyDavNdnpLjzIuf4h/OuB0OXCrzXZaRKPNi5/iH864ZRPSg9Di7Z8qOalkPy9etVbVuBUsj8VCielWxNzM1E54rGuRgGta8O5qyrsEKa6YqyPKm+ZmLftwfpWFdNya2NQbrWHc/ePNaoy6lZjk06M1GetOj60maxLUdTxGq6VMprFo6Y7E6n5hXpPgTGxK8zU/MK9L8Bn5ENc9bYuO56rpI+Ra3bboKxNIH7sVuW/QVwI6S4vSmTYJGemacvSork4XPpV9BLc+e/Ad/cXXxO8SJ5jbdQaUMvUFlbKnH4V2nxVsDf6G9gZPLEmzzWHB245rlrW3/wCES+IviLUWjB8iNp4Mjrv/AMmuz18tquiRX+w7p4FfA91Briw9RxjJdUz6LN6UalSE4bOKPBvEUfh/wzahliEjYwueWJrhNT8RXt1G89tYhYFYKXSPKqT0BbpmvQ9U8B6n4m1orO/2S0iyWlYdB7e9R6m1hpHh+58KCwS7007gjOFWZSeQ25eCQa9OhKDV27s8GvGfwxVkeR3WqX4kO9lBBIIUg45x2q9a6ld283lXCEOOqkYI/Cpl0eGCVZJJmcoQwDAYJHr61Leq2pXKvK8krqeCgC4+mBXVLlsc0IzWrOp8I3T6lOltnYxPaum8U6HPpVh9oJLBhnmm/BjwtNe67HcFNsaYxkdTXtHxB8MpeeHJECqHRcrn6V5M5t1Xy7I9iEP3a5t2fJOoXd0fMbJGO56Co/C1rY32qouo3Xl2+dznBJf2JHQV1et+G7m2kdFjyrdMjjNYUen3tvMUYbG9CMA16NOcWtDzalKSlaRm+INHFtqU9tYRrcWpYtDLHFncrEEKT7Yx7c+tQQ6PcR2GUWVbov03fKF9/Wust7e+YAG3R/cmtCHS724bEgSNfbrVOsluTHC31RzXh8anGPJmVyvbAyBXonhG0uAd7ZweQD1q/wCGPDfmlFWAqvcnvXaSaTFY22NijA/WuGvWT0R20aPLuZulN5d0gwCd2cY7159451G/tPEzRWxdFSQuzDuT0ruZpTDcKwOCDmk1S10/UopJmiBuU27+PvIeP0NTCXLB3NIxTrIz9B1c63pM1ndMWkK5XPqOa9O/Y707/ipPEeoleEiWMH/ef/7GvIvDVl5OvuIjiKIMWPYDFfQ/7K1mttoGuXgABnukXPsFJ/rSw8F7RM6cwq8mGcO57JdyBUNcLrD+fqbHrjiug1u/WKJiWAx71y1s5nlaQ9zmt8TO6seFh463J1QYoEY3CpwnFBWuOx1XNaxfCCtCOXise1baBVtZeOtdMJaHNJamgZhioJp8A81UecDvVK6uwq5zV81yGrDtSvAkTHNfNv7Q98J4WiBzjNe0a/qYSFzu7V84/GC8N1O4zmujCwvUTOPG1LU7HkhWmsPWrJU5qN0znFe3Y8Em0sfvfSu88OMRt61w+mqfNruNAUgrxWNTY6aZ6Hoj4C4PFdfpMn7+L/fX+dcVoxwq11mkPieH/fX+dcckejSehzNs3yD6U+RuKhtzhKWR+KQ3Jsq3B56VmXp+U1oTuPwrLvXGDWiYJGDqJ6isWcHJ9a1tRbk1mPg9atMagVNvNOValKikFJspJirUimowacDWbNokqn5ga9N8A58tM+1eXofmFen/AA//ANXGK56/wmkdz1vSPuCtu36CsXRx8grcg4xXAdBYXpUV19ypVqO5/wBWc1SA8t+LumeZYT38S/M9uYXI9jkVueDBHqPhTTRww+yoPyGP6Vr6nZR6hZXVtKoaPZubPYVz/g+NtHtl09zlbd2RD6rnI/nXNKHLN+Z6kK/tKEY9Ysfruj7rZ4lG3I614h4x8KTvdyMlxIqg88V9JPLDOBGRvY/pWXqOhWc3M8a4/u1ipSpu8DRRU1aR8u2/hB5ZQoWaZvccV2nhj4dEbZbhdvPAx0r1xtIsLY/u0jXHtUP2qNb+C0iXc8jhQoHf6VNTF1ZLlLhhqcdWjY+Hnh2301E8uIKB3x1rT8WJtsJEA4PWt/QoBFbM+0ZVe9ZWvwmeByD1/Su3DUbUX3ZyVKt6vkjxfXbSFSWMYwD0qE+FLDVLdSYwWx8rDqtbPiewu52mFnHl1Xdt71m+C9W3F7edfLnjYqykcqR61koyjqbtxk7FOD4fMkgUSnFb2meCreAh5l3enHFdlZXEbKDkGn3VygRsjj0p811qw5LdDCJstNXyo1UH2HSsPXL4SghMfStPV2idWYD6eorj9ROCQGzjqD2FZ2bY5WSMrU5/3m7oM0tsZ7mWKCJlijZQZZe+0HpVLUZNzbelaXhqG3vZFtftAiulG5dxxuHpXWo+4cal+8Rpy6LNciOz0SAqkzfv5y3OO5r3j4MxrpngO9bG1VvWUZ9FRR/jXktrazWa+Y04RVGWwa9l0Wzu7H4VmS6V4p7hZblo2GCm4cfjgA/jTobsnMH7sdTmdT8Sf2lqTW8DZUNgkGui0lf3Sn2ry7wmhF4CTkmvVdKH7pfpSr/EctD4TRC8CmsMGpR0pprE1FibHBp7S4HWoD1pkrYGaaZLVyK9vAh61ialqQCn5v1qHX7zyiea46/v3lJ+Y10wXMclSXKO1/UWkRgGzXjHj1TJI5NemXb5Q5Ned+MlDFq9LCqzPJxTbR555XXionjOcAVrCHPFTW9gGOSK9C55qRT0q2YuMg12miwlcGs/T7LawwtdLp1uVA4rGozppI3tKGAK6PS3xcQ5PO9f5isLT0wBW1YDFzF/vr/MVyS3O6nscvBMNgGaSabtmsyC4+SnSTD3p2LJJ5ff61mXsowTmpJZc55qhPvkyBmnY0iZd/Jz1qjuycVsHSLm5boeat2vhO4fBIbmi5tojnGPHWmZFdbJ4RdRyDWfdeHZIs4B4ouTdGHmjNTXVpLAeQcVXzSLJEPIr0/4en5E/CvLFOGH1r1L4en92lc9f4S4PU9h0f7g+lbUXGMViaMf3YrajPArgOksqajuPuUA0ydvlNUIqMYDp9xFK2AzqWA6sB2+ma5S6ju0mkmlUpGX/dZ9MVf8QXLQIXQ44rktM1vUtR1eS3vHh8hYz5YAOSR/9aoqQlJppaHTSqwjBxb1Oi0/UQhwcA+ven3mqrzg8nuTXOzz7HYjIxxgCs+/vsD5mOD615km07Hq07NXNu71VRnLKPU1Y8Ay6Ymq3usapJhbaMJCD3LZyfyH61w9s019frbR9z83PQV0uu+Gku9AktIbt7SVlwJFOefcU6aakmOo04tHdT+NdLktHFtKoTdyoNc/feM7GFG82UYxmvni40TxH4Wlm8m+eeMHkGQkN7gHkVk6hq+sagjWyKYnbq5bnHtXpwpTk782h57rQhG3Lqe1x/EjQRqEsclxArscbS43flWRdqur+ILnU9HGVWNDJtPVuf6YrxvTPDbXN0olkEIzklVGfzr27wSunaJpa2sZx/eJyST61rLDtapmUcUno0auiaxui8t22sOGB45q9c6iChy/H1rmNfMXnNeWLAn+NR396qRakZUwHP4VwSpuLO+NVTWhsXl6DlQRj1rnLyXc7Mx7YPtT7qfhmVjkdazbuYsNinO4VcImFSZVuMPLgDI+tevfBz4X6F408IX19dy3FnqUF4qW17AfmRQmSpU8MpJ6frXkMnBU8HHSvqD9lyHZ8OZpT/y1v5D+SqK9ClFN2PNxM3GzW5b8IfCDS9Iu0u9Y1S51ySJg0UcsYjiUjoSoJ3H6nHtXY+Nhnw3ej/pk38q26xfGh/4p68/65N/KtpQjGLsjldSVSV5O54H4YXF2K9P0riJfpXmXh3i8FemaV/ql+lcNf4jror3TUHSmNTweKic81izQafWq9weKmY4qrOcKaQHJeKD8xrkLphnmur8VOATmuE1G6Ck/NxXfQWh52IepDezYQ81wfid/MLe9b2o32d3OK5jUmaYnFejRVtTzayujJsoN8mTWxBbAdAKi0+3bjitu1ticZFdDkcqpi6fag44rfs7XgYHFR2FryBit20tvlHFYSkb04DbSDaK0rOMi4i/31/nTooMAcVatYv8ASIuP41/nWT1OqKseRRSEDrTjITnnmokUjilOQM4p8xtyMUZdgK2NM0wykEg81S0aDz7gccZr0Xw9pgbb8tJyAqaVoIbB2V01loKhR8gzW9pWmgKvy1u29gAo+WkVY4i40Jcfc/SsDVtBGD8lesy2II5FZOoaarKflouFjwLxJoxTdhK4C+hMExUjivoLxXpQEbYWvEvGMHkXJ4xzTQk9bGIpyw+ten/D1vkj+leWIfmB969O+Hp+VOayrfCbx3PZ9Gb92vPatqM8VgaK37ta20YCvOOpFjP4VHcH5D1o3ZqK4b5eKdwOU8WP+6auD0a5EOvxHPBfafoeK7XxbJ+6avNHlKXpYHkNkV2UVeJyVXaSZ0+ubo7g7XwDkkVgajcMkTAH9K3dUcXNklwOSyhuP1rEjhjuVYt2Hfua8epC02me7RqXgmiTSb230y2NxI6iQ85Jq4niaS7Q+UWYHgV5T451drNmRWIAHQHrzVDwZ4z1yO2kgsNJnkmY/LKqbjXVHDvkujmlWbnZnqmq6Nd3tvm6uba1eRcRrPJtJP8AhXLweEbuGYy30trawqeZjICpHt61yerx+LZ5WnvtI1OR353SDFU5ZNfuIFtRpd6VXnaxwP1rWFKSVrmnLF7xZ30dhpzzH+z9UtZipwF3YJ/A1T1W5u9OUq2QOCDurixo/iJ1LSJBZr6vJz+lRyaT4lmjMSXhdT3KnH4ZroimupzVafVI7Cx1ozBW88ggc/NzmtGwdpH8xfut1x2rzCDSNb0m43ys8iE5JPSvQ/CmoJ9mMcpCtjvWdaKcbomhJp2ZqXrFEwc9MVXgGW3scn+VRancxyMQAOTkc1WN3iPryM4Ga54xdjolK7HXEo355wOnvX1r+zXF5fwk058YMs87/wDj5H9K+N3ny6p6nrX3D8GLRbL4V+HYFOf9CV2/3mJY/wA67KKsefiXdo6+sPxs2PD92P8Apk38q3K53x2+3QLv/rk38q0qv3TCG54X4eOLta9L0k5hUj0rzDQSVu1zXpmkH9ytcFb4juo/CaxbiopGxTs8VBM2KwkaxQjOKp3UuFNOllABrLv7jAPNQncctjlvGNyFY815zqtySxHNdd4vn3S4zXGXCGRya9bDK0TyMR8RiXReRuOabDaM3Uda2Es9x4FXrax5+7mutSscrjcy7Kx77e9bFpZ9Mir9tZAY4xWjBagY+WnzkqmQWdtjHFbFrBwOKIIMY4q9BHj2qGzWMLCRxYFSwp+/j/31/nUqpT4V/fx8D74/nTRVjxFcClIDVGGHenRuAetZnY4m94Ttwbj15r1vw3ZjYvFeX+C8NcgZzzXtHhyIeWlCMWtTc0+1AA4rVigAXpTbOMBRWgijFMCk8HHSqN3bAg8VtunFVLhBtNAHn/iizBhfgV87fE6IR3XAxzX0/wCJY18h+B0r5o+Lq4uv+BU0Q90cEh5FemfD9vlSvMF6ivS/ATfInrUVvhN47ns2it+7XntW1GwxXO6K+I1xzkVtxvxXnHUi0GqO4b5DSbuKhun+Q0Acj4tf929eZSyYvGPvXofi6TET89q8unlIvG+td1BaHFXep1Wn3JksXgYgbASPcdxWaL4Wqybhk4OOai0+5MciOuCR2NUPEcbW9wTgmKUbkbsfaubE0Ly5jsweI05TnBpf9ua4FmXKbuRXrGj6Rpek6YscUSoVXIdRzmuI8KIrXAZQDzz6iu5eyuLlAUclSOP8K5K0pOy6HbSte5wnizxGtvO0aXdy+OMBjXIXHiu4YkJFM3uWxXomr+Cry8Ystvkn2rDPw31Av+9kjiH61vRlCw6k6qejORh126eQMLeM5P8AExOK6jQ7+S42mVAMnnA4Fadh8PFjkJklEu3oBwa3T4etrKEbYiMdWFbys9kc/O7+8zE1JYbm2MapwBg8d64ycPaXTbDha7LVmjhyisB9TXF6vdR+YyjHXn61UEYynd3HSXZI5Y596ikuNwJJrLNyTznmo3n6sW+g9aagNzNnT3Ml/GDg4YdK+v8A9nXX57vQpNPlfdFaOIV9uMivjzw+P9KjZ+ckE19d/BTSJdD8Cxz3ClLi9mNzg9QD939BXRQhzSfY58Q7RXc9lJwK5D4jXCx6FcDONykVV134p+DtA1S20nxDqf8AZd1cpvha4jYRSDocPjHB9cVjfEjU4b7TYnspknglwyyRtuVh2IIrKsmnZozpOMnozznShtvFr0fRjmBfpXnVgCLwH3r0PRGHkqPauOqrs7aTsjZAJFV51NWVcbahncVm6dyuexlXisAcGsLUJD830robplORXP6shwWFR7KzK57o4LxQGaY49axYYCT0roNXXzJyCKgitwCOK9OkrRPOqq8iva2ee3WtK2sc4+WrNpAOOK1ra3A6rWplyFGGyA7Cp1tcHoK1EhHYUpiAFAcpQWICpFAHanzDFVpJQvemkJ6FoHAp0Tjz4/8AfX+dZpux60Q3P+kRc/xr/MVolYR4v5gxT4d7HgE1BbL5r98VqwqiDpXJUqqJ71DBOtr0Oi8CxSfagSMDNe3+GxiJPpXi3hCYC5HNex+G5wY15rOFbmZGJwHstTtLQ/KKuqRis2zf5RVxZOK6Uzy3HUlYiqlw3BqRpKp3UoAPNFxWOc8TOBA/0r5m+Lr7rs4/vV9F+K58W7nPavmr4py7rs896qJEt0cUhyRmvSPAvCpXmkZ+cV6T4IbCJUVvhNlueuaM/wC6X2raikrm9IfEaitqKSuBo6UzQ3+9QXkmENMD+9V7xzsNCQXON8YS/u3ryu5n/wBMbnvXpPi/eyPgGvLbuGf7Wx2nrXoYde6cFZ6mxaz8rzXb6Dpll4g0uTTbw7dw/dyDrG3YivObYSqRuFeg+ApzHKM8VVVaEU3aRxGpadqvg7XjaX8TKBzHIudkq9ip/p2r0Pw3rlqbZHLLjHHHevUPGOg2uvfB6SOeFJJQ/nxOR8yMD1B7cV8zXC3ekzGHe2wEgD0rirUU7LqelRqu1z2C68UWfkkGRFI6+1cxqXiiHzMqykA45PU15PqGs3ccrHPy9CazZdWuXTBdsHsayWFkb/WY2PV5/E0EeZcgtjOC2KytQ8YhgVaQe/NebtdXE4AAfHfio5H5xNMq54IByfyFdNPDyOepXTN7WNZMo+VieMLk1zM0rSyHJz60+STdwoIUcc9T/hUBbGTgYFdCgoow5mxxbauT8tLZIZX81hhBwBUCo07DORGOnvXofwo8Aal421RYoVaDTYW/0m6xwP8AZX1b+VKzk7RLVormkb/wH8DXHirxEl5cxlNIsnDTuR/rGHIjH9fQV9U3Mq/LDEAqKMKB0ArN0HTNO8O6LBo+k26wW8K4UDqT3JPcmraKc5au6nTUI2Rw1KjqSuzzX9pvwcvij4cve26/6fpLfaYm7lQPnX8R/KvGfgf8QRpxXwnrVwfsM7A2kjniFj/D7A19O+OruGz8G6rPcY8tbSTdnpjaa/Pu4uG84MCQAcrxjHpWlSmp0rMxjJxqXR9pra+XcAjp611ejMVUD2rwH4JfE2K9jg0DxFOFuEAS3uXPDjsGPrX0Bpy4UHqCOCO9eLVouMrM9OnVUloaqucVFKxNTRLuUU4wk9qlQKczKnDEnGazryBnQjFdG1sOwqvLbZHQ1api5zzrVdOZZC4U1nrC6npXoN/YhgRtrAurAoxwtdMI6WMZMz7FDkZFbECcCqsEJUgehrSiQkDFU42FzIaBxTJTgc1YZSBVS5BGamxJQvJcA81h3t1tyM1f1KQqprltXuioPNUkZSLTXwBPzCi3vx9qhG7/AJaL/MVyc+okEjdUdrqWbyAbv+Wq9/8AaFaE2bMexcLCDxk1aWbI61k28nygCriNnHNeVU3PvcGlypI6Xw3deVcLk969b8MX4KryK8Ns5GjcMOMV3fhbVyCoLVhG6Zpi6KlA9ysLnKDmtATjHWuI0fUwyL81bSXwIzu7V6FN3R8lXhyyNiS5HrVC7uMg81nyXwyeaqXF3lTg1soNnI5JGX4okLwuAeorwvx3ppubkkKSc5r2bWpd4I61xeqWAnkJK1tCmclSrrc8li0Jww+U9a7bwtYtCq5BrXXSVz9ytKwsxGQMYFRVp6F06zbNfTtyota8DE8dKoWkYCjitO2UZHSvPlHU74y0LKDI9ajuFwn1qdRgVHP9w01EGzkdfhDq2R1rhruxBnb5e9ek6nEWzxXOT2DGQnFdUHZHFUi2zlGsguDtFdF4WgKPkCpH02RsYWovFmqReFfCtxesyrMVKx57sav43yoSTirs+h/CsUOp+AYLZXBSWJkyPUEj+dfOnxC0BrbUp7a4j8uWNiDxjnsR7GvbP2dLiW5+Cfhq6lJaSW3Z2J7ku1T/ABV8HDxLp/2yx2pqlup8sn7so/uN/Q9qzxNFyj7u6OzCVlCXv7M+P9a0x0cnYCPUHmububUqxwz9em6vTtTsnMs9u0RhuoWKTW8owyN6VyuqWLqSHt2B9RXFSxTXuvc9GphU/ejsclJDuPzEt9WJpqoI/urge1aU1u4YhYWOaZ9lnbhsIO+OtdKrdzmdDoZ78DBySew60qwFuZOB/d7CtD7OkWBglmOAByWNeyfCb4RteNFrXii3KxDDQ2Td/Qyf/E/nVw5qrtEmajSV5bnL/Cf4Wah4smiv79ZLLRgcl8Yeceieg/2vyr6j0PTLDRNMh03S7aO2tol2qiDA/wD11NaW8cEKxRIqIowABgAVbij9RXo04KCsjzqk3N3YIvGT196ftpX44FRSShFJzV7mR5L+1R4gXSfh1NYoxE18whUA846n9BXxq555Ur+texftVeKBrHjdNJikJg09MMAeC7df0rxvK7vlZlPv0q6miUTOGrbLdpK8Thgfcc/1r274UfGHUfD5hsNZMl/pvAy3MkQ9Qe49jXh8WRzjHuvIq/av0wy/g2DUKCkrMcm1qj9B/D2qaVrNhDeabew3EUqBlKMM4PqO1bAir877DX9X0TUY5tNvJ7duoKykfyr2XwT+0L4j0to7bXIl1OFQMluHx/vDr+IrnlhH9lmscV/Mj6rMQ9KjeAEdK4vwT8XvBvidUjW+Fhct/wAsrkhefZuld+uyRA8bK6EZDKcg1g4Sho0dEJxmrpmTcWw9KyL+zGD8tdTLHWZfR8GnEbOQlhCNj0qSLgVPqACsaoiTFaPYzLRIqrc4IOKR5u1VZ5+Ceahmi1MnV0GCRXBeIWaPNd3qE2VOa4zxDF5ytgVHNYmUDgL67YSHmoLK7b7fb8/8tk/9CFRa1G0VwwIqnp+86hbf9dk/9CFDqFRpGtaZaJTVyLOeazdLlwoViK14ShxyMVz1Kep9DgcYuUs26kkelbWmF4nBBxWdZeWWHIrVRo0XJIp0qDbOrE4+Kjuddo+qsgUFuldJBrA8ofN2rypNQKzBIzkVuwXkn2fPtXpwwtj5PFYtNs7Mapvc/N3qQ3ZdfvVxthPKz8k9a6Ky3MozW/sUjy/btsknJckmqrwBm+7+NXmUYxUfANLksTcqG3XHSkSNVPSrTnAqrJIAxrGpHQ2puzLsJxir0DDIrGS4HTNWYLj5utefOB6EJm2p4psnzAiq0U+QBkVoRwwxR/aL6ZYIgMkscfmayeh1UoOo9DPaze4JVELH2psuipAhmupo4IwMkscAVyvjn4zeGfDiPaaMq6jdDjKnCA/XvXlNz4q8S+Or5X1S7e3sSflhQEKa6KWEq1NZaIdfEYTDq3xv8D2G51zRdzRacftjqcFwPkB+vevA/j34oOpX0enxyAx24+YDoW713Os30Hh/QGEJi8wphSvWvn7xHdtd3bSFyxZsk4ru9jCjHQ8p15Yid2rLsfoR+zcoX4F+E19LEfzNd6SDwa8+/ZqYn4JeGVbqtoFx+Jr0OSMnpWL0ZtHY82+LHw4tvFEf9o6e62eswr+7nA4kH9xx3Hv1FfO2sxXemahJpmt2L2l9H1Vujj1U9xX2gIieGryf48az8NLG3g0nxhLFNezMPs9vAM3Ck8bgR90e5rlrYONfbRnbh8bKho9j5ru1jYkqG+lUVtri5uorOwtpLi6mYJFEg3Mx9AK9mvfhr4GsYUvNR8Y3em2zrvENxLEJAv5Z/Su4+DOmfDXyLq58F3kGpXcbeXcXEkm+dR+P3VPsMGuaGCmn7x1VMfTa93c5f4UfCOLQ3j1nxEEutWI3JEOY7f2Hq3v+VetxwhQABgVeaDb2puzHNepSgoRsjyqk3J3ZGkYA5p5cAUYY9qa6EDmtzBsrzSkk44rC8V6mNL0O81CZgsdvC0jE+gFdCsJY14b+1/4lGk+DoNBt5NtxqcmHAPIiXk/mcCtYWTuZzvbQ+W9a1K41bWbzUpJV33MzSHJGeTVMiQ9Qjg/SokVVQSN3PC5/WpV8k84cfiKzbcncaVtCWIAYO10PtyKuxMMf6yM/7y1Ug2g4WZl+oq3Gxx/roj9V/wDrVcSJMivj80bAxdf4Ks+Yf3EgODjB/Oq2on90p3RHDD7o5pwP+jRk+pFUnZkvY1bUn7c4Q4+9jB9q7fwH8T/GHhgMbLU5JLePBa3m+dCPoeleexSbL2NskZ28/hV2ylQrcLkg7D+hrSykrMzs07o+rfBHx90TU44YfEFubCaT5fOj+aPPuOor0431lf2a3NjcxXELjKvGwYGvgpDusQ2fuy4z9RXWeFvGGueGpYH0zUZY43QFo2+ZG5I5FYTwkX8OhtTxUo6S1PqLWpME4rJEvFcroXxF0/WHW11BTbXXQlRlGP8ASupt/IuADDNHJnphs1yVIyho0dtGUajumIXJPWmSDIxmrX2N89MUCzbPLVzupE7Y4ao9kYd/F8pNYlxaiTOe9dhe2DGMlSD7ViPAyyFWUisJ1ItaMU8POHxI8v8AF2k7ZN4WsHTrFhqFvx/y2T/0IV6b4msvMXpmsCw0z/TYOP8Alqv8xXOqjNIRVjlbDR7ufAjjOfWuj0zwXqEwBdyoNegeHdEhjRSUGfcV2VjYxKBhRXrWueSpSWx5fp3gOfILSOa1P+EBLLjL/nXqdtaoP4aux2qH+EVcPd2KnNyWp5Tp/gFY3BKkn3NbSeEQse0A4r0RLVf7tSi3XH3RXR7aRzOknuee2nhPyz0IrVi0Bo14rsEhUdhTjGvoKTrNiVCJw91pUqKcAmsuWCWNsEYr0O4iQg8VzutWybWYDkUKr3E6JyNyzKprJmnZ5BGilmY4AHUmtXUZQu5T9K2/hxoUbNJrl0u4Rttt1PTd3b8KzrVFGNx06bcrIdpPhVLW3S41iQmVgGFuh+7/ALx9farpW0j+WGxgRR6rmrfiHVLOySSe8uEXvjPNeK/EL4pLbxyQacQp5APf6muWnRnWd3sdU6kKWiO58X+MNF8N27zT/ZzOB8qIBnNfO3xG+JeseJJ2jNw8cOfljRiFArlfEOu3mqXLTTytIzHjJqtocNsb2OXUdxtwecdzXfClCG25hKpOS1enYv8Ah3SJb2QXVwrOmeFHUmvT9BjSwg+0yNNDGi9GxisG0Sz2i4EawwqMhlk4xVLWtYe/jMUTOsEZwqk53e5rbZHM7zY3xhfSas7yysVtlBMaD+IDua8zZGub1Ixzl8Ae1d54kk8qxK9/JGfxArD+HelNqmuH5NyxKSfrWfLzySN4NQi2fePwAg+zfCvQoAPu2wr0NVzXGfBqLZ4D0yLH3IttbXj7xJaeEfCd9rl4y7beMlFJ5d/4V/E1y1I++0jpg7QTZ5j+0x8ZYPh5piaLorxTeJL1T5QPK2yf89GHr6DvXxRrMlzql/Nq2p3Vxe38775Z5nLMzeua7DxVaXHjnUL3XdRnYavcSGRJCePZCPTHA9K43bNGHtbiMpNEdrqeoq3Dk0EnzamfeSSSuXlkeQ+rsWP61a8KeJda8J65BrWgX8llewnh0PDDurDoynuDVG7yrEVSkOTWb0KSPvL4EfGjRviPZrp94I9O8RRLmW0LfLMB1eInqPVeo9+teqNGOtfnp4C0Ga3e11oSTQ3SsJIGRipjx0YEc5r64+EvxRTVVi0bxLMkd/gLFdHhZvZuwb9DWqi+W7IbVz1Ex4HSm7OckVaKZxjkUmznpTBlcoFQk8cV8J/tKeJP+El+K1+sUu+007/RIiDx8v3z/wB9Z/Kvsz4r+IovCngPVtadgGgt28oE9XIwo/OvztuppZZHmmctNO5kkY9SSc/z5q27RIfxCLiRyTwijJ9hUkbyMzFCEQduy1FyqiIZJJ+b6+lTbfuwLz/e9zUJgyzH5vdoD9cVOm7/AKdj+VU0khi3DYXQfxEnj8u1Qz6pEvywwox98mtOeKWpPK29C/fpm0Y7LcY6bWGf502Eg2S9vn/pWWst7dMU+6uMkAdq1IFxYMO4kX+RpxlzaoUo20ZM5/ewN/sr/OnxttuZl56MKilOEgbvs/qakP8Ax/yD13fyq72JsTwzkWbjJ/1in9DVt7ki2tTnkIwz/wACNZUJ/wBGl+qn+dTSN/osPr8w/WrjIzlA6ax1GaLWleJ9mXHOemRXV+DPE0sZkNxLI7RgOjbsEc4rzdZQupQkcZMfX6Cp7C5ZPtI3f8smHX3FaXTMnFrVH1L4X8c2F5YoL2RQwO0PuHzfUetdHaanpt24WG4j3HoCw5r5FtNVmisSVlcFZgRg/wCya3B4uvLdLB0lyUjw2f4sMetcVXL6VTVaHpYfOMTQsnqvM+priMgdKzL61EiFwPmFeM6R8XruxaW2uY2KKxKEtuAHoc9q7TT/AIp6W1nv1aD7IzJuAU5ZvQ7eoz715NfK60HeGqPbp53hq1NxqrlZc1iHd2rNsrdftkXA/wBYv8xVi113S9cieTT7pZdp+ZOjL9RTbVwL2If9NF/mK4pRlCXLJamVJqavHY6zR0wgrorRRxWDpR+QVvWrAYr2o7HkM07cdKvwqKoW5HHNaETDGa0sSTqop2BTAwx1oLgClZgOb2qJjTXkFQyzIilnYADkkmiw0Ex4OKyNUQvGa53U/id4XttYbSkuzPcoMlY1JA/GuO8W/EeacPDYqLeM55PLYq40pyexEq0Ei7r80EF2wllCgdeaxdX+Jd1Zacmn2MixRRDAKjk15xrXiKSRm/fMzHqxNcdqmqSSZG7Gf0FdCpQW5z885baHTeKvGl9dljJcu7Hplq88v7yS5lZnYkZ5JPU0y4neRgSeTwB7UQxhnAI+Rf1NDlfRFxhYk0+xe4cFhjd+groYrG3MQikxs6Y9aqPdCzEa24QBo9xZhk5qk+oySeUHlLEkmnzJBZyLMYWDakc8kkPmYEbdBWjaRF0kzjHmCsa33eSpJ582ug0xD5UrPwN4/rUDasZnjuYLLNGp+6gX+Vdl+zVo32p5bl0yJJcD6CvOPGtx5mpXSg55r6G/Zl0vyfDdlKV5k+f8zWtBe832Jn8KXc+j/h1CLXRBb9BG5xXgv7Tvii68Sa9F4a0oPNZ2TZlCDh5ff2Fewazf3thpradpkEsl5euER1X5YlPBYn2qLVPB2kWMSRW9sm8KN8hGWY9yT61ha03LudG8VHsfOHhjwZdCJZroEPjhR2rJ+KfgC5i0ZvFVnEWFsyx3qAc+WeFk/A4B+tfTmn6DbRn/AFY/EVkfE/SGk+FvimK23Kx0+Rvl4JC4JH4gGok2ykranwhqW0TEBlPPY1d8EaHJr/iKGxUfIPnkP+yKo6ikf2h8IgGeABiuz+AOo2WnfEa0hv32QXo+zgk/KHJG3Ptnj8aiKTkrjbtE9u0b4fEQ2rTEsGUkj0HQVe1bwesUH7lNuemK9ZubSKDyo1UDbGBimrYLdTRoyZG4E1vMziZXhDxBq3hiytLPXzJd2bKMTdXiHv6j9a9Ms7m1vbVLm0mSaJxlWQ5BrCbTra7+SWMMAMcisS20TUdN1KVtC1AWsEpPmwyLuT/eUdjUxjcpux5R+2V4h3aBb6PHLiJ7oKwH8ZUbm/AfKPqa+URzumb14HvXs/7Wuoxy+PbTw9bSGRNLtFVyT1lkO9iffG2vGZPndYk+6OAf5miTJQQ5RTKevRfr61Ig2Rbj95+B9PWmqollCgkRqOvoB3qVAJJQWZEXtubaPYZ6VICjKQhQPmk5/D0/GmixiW5UINzZG5QO/fFTqHEjTuuGH3R79vwFPjZoIt4OHkGAe4Xufxqkl1E79B1ui/aZcAYw5H5Gli5s5cdmX+tJcTRWyIJid+07yO2egplpKGtZsdPlP61pdE26kk/+oiPsw/Wpj/yEh15/+JqGTJtYz7sP5VNz/aMR7nZ+oFFxEUX+omx/dU/rTpGP2SLno7D+VJB/qpwcf6v/ANmFNY/6IvtIf5ClcCwX/wBKtz/sxnj8KWF8T3AAHKuMVWkOHt2/2Vp0TkXc3PVZP5GqUhOJPHM32KTIHEi8/gaLiciG3Of4G/8AQjVMMfsr/wC8v9aCHnNrCh+Z8gZ6daamLkRsxTGOea/kBKRthNoBy3qQew/U1Q1TV5ppS5YAk7tyjGff29xRqFwiJtgBiaNdjxk5BHfH9RWMcMxUHIzkZ9DxSnNrRBCC3Zs6D4gvtK1GO7tJmSRD0zwfY+or3jwxr0Os2tlqEGF8yRRImfuPkZFfOBj4zuAP+f8ACu7+Euqvb6v9gaT5JirgZ43Kw/pXm4yl7SPN1R6eBqclTl6M+mNIvFKj5q3ra7UY+avLdPvriPHBrcs9RumAODXbRoto8apilE9JgvVGPmq2l+g/iH5153FeXrAYDVZW4vf9quj2Bj9c8jvxqKf3hSNqCf3hXCCe99GpRcXvoaXsB/XPI7Y3yt/EK8S/aJ+Jkml2z6BpE5Sd1/fyKeVHoD612t5qFxaadcXUuQsUZb8hXyL471G51LWpZriXdJNMSR6c1LpqGptTquq7HT+CZha6ZJeTMTPcHcWPXH1pNV1Z5CxDED+lZpuPIs4oU4ASs2SYs3zHjqarnsWqetyae6JJ3H3NZtxKW4zyxyfpSu+4gE9Tk/SoTliT3c4H0rNu5qlYYuSS+OTwtXoAsaFmHCD9agjUeZnsnA+tTuOAh6KNzUhskMhdIxgZ2EVWEahrdh1J/rT9wMiADH7s01SCLf13H+dD1BIuWq5TH/TYV0QYRafM3/TQDP51iacgIX3mrX1ZhHpD47zn+VNEPVnEa6xm1SdRyWbH619jfBawFpoVhCFA2xIP0r49to/tfimCADPmXKrj/gQr7e+GsAS2t1A6KK1pfBJin8cUejwqGeMYGciptWXzLkLTbYfv4x7ipbwZu8n1rlb1OlbFK4thAuQfmrz748eJ08J/CrUpV2m81P8A0C2U/wC2DvbHfCZ/EivQ76QGUKOa+SP2rvEUurfEAaMkubTRohEqg8ecwDSH6/dH4UAzwS//AOPh8dAahiZ4ZlliYrIjBkYdQRyDU96P37fWolHFQimffPgjUz4j8K6PrRO5rqwhkY/7W3DfqDXU6bFjfKewwK8m/ZT1H+0PhHawO2XsLqW19wM7l/Rq9kChIljH41vLYyiWLQYjZqppIkZlmlbCICzE9gOTWi4EdmT04rzX41642g/CnXr2J9k80P2SA/7cp2foCT+FKOw5Hxp4/wBafX/GGs685yb67keP2TOB/wCOgCuf/wBXHn+Jx+Q/+vUswV5sKcRoMA/7IqNCJJDI4+VecfyFRcB6jZEE/ifBb6dhUxjDbbcAHs2ehNMgJy079Qfl/wB7/wCtUkY2RF+dzcKfbuaaEMjtyJiLeUpGoJIYblwPbtmrUOAxnkAITG1T3PYfQUmDHEIxkvJgsMduw/r+VRajKsMewdEGD7t3/wAPwo2DcoXchuLxYwc5OTWhYri3nH+wP/QhVLS4Wa6jdxkswP61p2wxHOOf9X/7MKcF1Cb6A3/HmnI4dv5CpM/6bAR/0z/pTD/x5j2kPP4ClkP+kW5HdU61RFhF4M4H9xv5io2P+ifSX+lOT/WT8j7j/wA6YTm0Pb94P5Gk2UJKSBB/uD+Zp4b/AE2X/gf8jUUpysJ/2B/M0/j+0H9y38jQBGG/0WX0yp/nUumokkcszEh0XEfv61UZttrN3OFx+dWyxtLe3HYoHPvnqP50J63BrQrX8vmSCQnk/K3vVEPtHJ6ZFPucgyJ/dbI/OmJCXb8f51k229DRJJDZJZJCev8Ak1q+CbqW28V6a2TzcoCPYsKSztY+MjNaOjad/wAVJplwinatygbA6fMMVLpytcqM0mj6bsNP3H7tdHpumjjK0tjbqO1dDYRKAOK7VKyPK9km9SG201QMhasDTh/dFa1vGvTAqwI1xU87NVRRhf2euPuij7AP7ordMa4zxTVjG7ilzsfsUeWfHO7XRPAFzJj5p2WJcd818fajK8mpxs7DO7oO1fVX7XF9Fa+HNM08n95NMZceyj/E18mTljfRF8DngVM5e6jWjBJs6KaYsg9xiqoJYH/aOB9Kc7fu856DioidoPP3V/WpuaDXb5m9/lFOT75PZBgfWox94Z/hGfxqaBCSoPf5jQgJo1UbVPRRuakcMYyOcv8AMfpTlUtgDrIf0qzFGCHkYcAcfQVZLZSkwtygHB8rn8qbbjJt/wDe/qKJTuvIyR95f8aW34SE+j/4VJSNrTxgAek4qfxE+3TCOM+ef5VBYng9OJx/Wl8UEixkHH+uP8jT6ELcy/A0BuviHp0eM5uA35DNfb/w+ixHH7LXxp8Grf7V8R7Q4zshd/0A/rX2v4Gj2xA46CtoaUWTL+KjsLT/AI+U+tSakSshIplj/wAfK/WpNRALc1yfaOlfCZLusYkuJj8sal2PsBk/yr4C8WavLrOuajqk7lpLu5kmbP8AtMSP0xX278U9Q/sr4ceIr9TtMWnS7T6Fl2j9TXwRcPhcZzjinJ6CS1M64+aQ59aaop0nJNCis0W9T6a/YxvW/sfWbEt8i3iSAe5T/wCtX0lGu6Rc8kmvln9jdv8AS9aj/wCmkR/8dNfVlmu6bPoK6JfCmYw1bH6kcWhHtXzT+1/rvlaDougRv8080l3KM9lGxP1Zvyr6Q16TZBgda+JP2h9aGs/E/UBu3W+mqtoozx8n3sfV2P5UR0gOW55fcjy0EfRmwW/oP60gUgrCvUnn3NISS7TMckH8zTrf5EMhHzNkKf5msxk4QPIkKH5Rxn+ZqZAssxOMQoM4/wBkdB9T/WokHlwEn70g/wDHf/r1YEbBUt1GZHILD3PQf59aZIsZIEl033s4T/ePf8B/Ssi+bzZliXp1NaeoSLEhVSNkY2g+p7n8TWdYxb189upf+lJ6uxS0VzSto/LuLfjtGf5VNCMNcjP/ACzf+dI3Etv/ANc0p0fFzdL/ANM5a0IIif8AQ8f9Nf6UyUjfAc/wL/Og82jc/wDLQfyNNmx+4P8Asf8AsxpMZIflurhc44kFR5JtX/31/kae+BfzL7yfyNQqf9Fk/wB5D/OpAJT+6h/3T/M04sP7Qbkcsf5Go5SfIi+h/nRKxW9JHXP9KLjsQxfvGEXYkE/Qc1LqDhrdTzlGK/gef8aZovzX2SAV27Dz68VDcMSkiHr1/EGpvoVbUhY7pSf7yf0/+tT4pAAOeq/qOlRIPmiJ6dP1p0YwF9mwf8/nUplNGlbTAsDnrg/n/wDX/nXR+Gb4QapasvP75Ov+8OK42PIwPqtauiS51K0Oes8f/oQrSMzKUbn2daSgHnOehzW7YyjAOa5bxBKtn4q1K0RgFjuXAHtmr9hegAc1rFc0bnIpanYQyDGamMo9TXPQ34A6099TUd6ORmntEjeMwx1q7pUfnSgkcCuP/tZCwG7vXceG0326EdWGTWNZ8i1NaP7xnzX+2jFIviLRAVIgFo5BxwTu5H8q+Yrrd9uRm6k8V9K/theJYNW8ZwaFbbWh0iHbI4/ilfBYfgAor5mu2LXauf73FRe8EzWKtJm3kNGo9TTfvKuR945P0pFJ2r7L/OpMYB5+6taCGhQ2P9tv0qxGu7dgcsdo+lMVcEn+6MfjVmJduDj7i/qaaJbHIhyWX/cWrMy7YREv8RC/gOtIg8vBx/qxz7saivZNisd3KLt/E9avoR1KM7B7uNgBgnH60RcQj1WSoyNpi6cNz+lSdFlX0f8AxqCzasxzL2IkB/nUfi18w3IHQShh+op1nktOB6K3+fzqHxYctdLkHo38j/WhiW5vfs7Qed42lm/55Wh/VwK+x/Bg22pOK+Rv2Y03+INSk/uwIPzavrzwmNtmPc10r+CR/wAvGdTp/NwtO1Q4JpNP/wCPhfpUert8x+tcf2jo+yeUftL3v2X4NazhsGdoYB77pB/QV8UTtljX1r+17eiL4ZWltnm41SMfUKjt/hXyNIaKnYIkLdaco4ppqRRUIo9//Y4B/tTWj2zF/I19Z6YuVZ/U8V8n/sdAC71xsfxxf+gmvrXTU22qH1Ga3n8KM6e7Of8AHmpRaVpl1qE5AitIHnf6KpP9K/PnWrua8vJZ5SWnuZWmlPcsxJx+v619hftSayun+AL+HeQ17IlqB6gncw/JSPxr4zmcjfO5y7khfr3NOWkUietytIN8iwocgcZ9T3NTRgSShQSI0GM+iioF+SMnGGfgey1ajHlxBMfM+C307D+v5Vmhsngw7tM4+VBnH8h/n0qWIlI2uGPzuSFPuep/z600RkstspGc5Y9s9/wFJeSrgvjEca4Uf5/Oq2AzNQfzJVt17DLVetYwtiBj/lr/AEqjpima4llbujYzWqgxYkf9NR/I0orqOXYWX/WW3+4n86GIF/c5xz5o/nTbg4+zH/pmP/QjQCf7Qn45/e/yNUySEMfsr9/3i/yNNmP7uA9PkP8A6Eaap/0aX2Zf60kx/dQ/7rf+hGpuMnzu1CT0Jf8AkagQ/wCjS/Vf5mpCSb5+ATluv+7UMZ/0eX/gP86VwsJM37iLn+9/Oo7lgLskHj/61LM2YI8/7VQXb4mJ9h/Kk2UkT6ePLtvN5BZiR9BUN0R9rmAJ5LVZlHl6ZbjuAyn9D/WqUrbroH1A/lSb0Gtxu7ESnurHn8qkccyj3z+v/wBeoF/1RH+0P5VPnMjf7af0pIbFPVznnh6u6Q23VbX0+0IPzYGqA5Cc9VK1a0g51Kz9TNH+YcU7k2PpK58TDVdcvNRLY+0TtIB7E8VuWOqgIPnFeN6NfYx8xrrLG+Gzl66YTSVjhdKzPRf7ZAH3x+dUb7xAsanMn61yUl6NvD1h6vffKfmNWpoh02zq5fGCR3Sjf/EO9e/6dr8Wl/Dm78RPhltbN5gM/eIXgficV8Q6pfsspZWOQa9cm+Ia33wCOiI5F3JMkEvP/LMHcfzwBXHik6jVjrwq9knc8g8TX1zqFzd6ldyGS5uXaWVj3Zjk1wt9xcLjsRXWanLuUrjvXKX3Mok7FuKJ7G8DajGVB9SBUqgt/wACb+VRwg+WjY65NSxYwOvCk1SJZLApYjPQtuP0FWoRllB/iJc+wFRKhGQOyhR+NSsAu8AdAEFUiGPcjbGW/iJdvoKz528wqGOASXb6VPcv/rFU55CCq0v/AC1YHphFptgkRNlrdnPd8ipuss49cN/L/Go3HyyR/wB1B+eef506HBlBx9+L+n/1qTGbGnnLnj70GD+GP8Kq+KSBcuo/jiH/AKCDVvSvmkgA/iRl+vWs7xIf30DZ4KAHj0JFD2Etzu/2Xf8AkOasP+mUf/oRr668ODFqor5G/ZaTPiPWIzwRDEf/AB8ivr7Ql2wIK6F/BSIX8RnRaeP34PtVbWmw5qzYH99n2qhqrZmPeuZL3jfofOH7Zt0F0bw3Zj+K6nlP4Io/rXzKx5r6B/bOuM634ctQfu2s0n5uo/pXz4eamo/eKgtBB1qRKZUi/lUFH0B+x9/r9bx3kjH/AI6a+u4x5dovstfIv7Hozd6uoHWeMfpX13efLalR6YFbz2iZQ3Z8kftfa0134k03w9C+fJjNxKM9Gfhc/RQT+NfPNwyyz7UJEajGfYdTXdfGfWv7Z+IGvaiGysl28MJz0jT5B/6D+prgZfkUL/E3J9h2H9aU3diQ+LEkjSMMIvOP5CrdscFrh+oPy+7f/W6/lVYIRthUZbOW92Pb8Kuxp5kqQBsRxg7m/Vj/AJ9qlAyWMeXb7zy8vA9dvc/iePwNZ2tSbfLtF6g/P9e/5dK1C4Cy3RG1YxhB7/wj+v4VgRbri88w5Iz1/GiXYce5pabEqSyoOyOP0NWRgWD+vmr/ACNOgUJdzjjhZP5Goc/6JJ7OvP51exO4l02UtznpH/7MaYX3X8pBBzv/AJGo7piYoTx90/8AoRo5+3v1/i/9BNQ2MYjf6PLz3X+tEx/cQ5/ut/6EaZH/AMe8vI6r/OiU/uIvo38zSuMsE4vmx7/+g1XU4gk+i/zqUnF8cHv/AEquD+4k57L/ADobAbMf3CfVv6VWn+a5CZzkgVLK37hPqxpkY36go465/IVEmWkWrxx9jC5+7J/T/wCtVIcyxn2FTTnejjPcH+dMACiJs9v5Gh6sa0CNf3cgPUc/r/8AXpwI3RHGMjB/PFDkedKueob/ABpn/LNSOzGjYBynao/2H/z/ACq3pnyanbYwdl1H+RYVXZcmUY6/N/n86taYN2p2mf4pIz+IYf4U7EHX6VKMDmuq02dSvYcV59pl3jHNdBaagAowatMiUbs6+SVNnUVi6pIpU1UOo8daz9QvwVPzVVyeQyNWIycGtHTBLa6ARI3+uO5Qe1UNJiTVPEFrZyPiN5BvPtXVfESCzsrxbSyA2KoGAelEVe7G9GkchcMCcMQetc5qgClQPTNa87MHPtmszVUyu4DoorKWptFGtCf9Gixz+7qxEmT+Qqvbc2cR/wCmYq7FwfX5v6VaIZIhAKn1bPPtTdwymeermmHhc+ifzpj5O8D0CU7isJ02AjoC5qNF3GJCOpLmpJATvK+oQUhO3znHYbFpiIgCQWyN0uRiktz80BPQMVP5/wD16kbaswz0jAH4moE4V17q4P8An9KTGjb0ogPB/sy4P44rP8SD9yvX5XKn9P8A69XLTJMmD3Vx/n8ar+IhkTjHBxIuf8+9Aup3n7Lef+Ev1fB4a1jb/wAfr690b/VJ7CvkL9lhs+KdUOeRaxj/AMiV9e6QR5S9uK6f+XSI+2zesTyxHpWdftmcitC0O2Jj61l3B3TE1zx3NnsfJH7Yk+/4i6dBn/VaWv8A49I5/pXiftXrX7WUxk+Lssef9TYW6/mCf615IKzn8RUdhRUq1GKkXGKko+hf2NF36jqQ7i5jP/jtfTnxL1ddA8D6xrLMAbSzkkUn+9twv/jxFfM37FfOr6mv/TdD/wCO16B+2b4sXS/BNt4Zgkxc6tJvlAPIgjIJ/wC+n2j8DW0teX0Mo9T5A1CXzrh5GJZUHJ9T/wDXP86oRnLtM/ODx7ntU16xULCMlidzj37D/PrUOCXEKnOD+vepe4Fm1BVWl7k4U+/c/wCfWrcY8u3A/ik5I/2ew/E1DbhZZQnSJF5P+yOp/H+tW4Wd5TOELMpARAM5Y8KAO+PT2poRR12YxxpapwV+97sev5dKZaQbFh7fKD+tadh4N8X6rdFrTwtrtwA2AVsJTyffbXcaZ8FPihqMULQ+D76BQmM3TpB3P95gaajd3Y3pocK5A1C49D5g/Q1S3Zt5D6Fe/wBa9zsf2bPiHd3jzXUuiWCNuOJbsuwyD2RT/Ot3S/2UtSKMmp+M7KJWx/x62TueP95lFN27iSZ80z8ww/7p/wDQjT1U/bW4657eoNfXem/st+DIBH/aOv67fbByEMUAPPsrH9a63S/gj8KtJYS/8I1FeSL/AB31zJNn8CQv6VGhVmfCcYXyZF3Dd8uBnnrSTjEEX0b+dfojaaJ4Z0pP+JV4d0azVOjRWES4/Hb/AFr5G/az1CDUvioPs81p5Ntp8MBkhZSu7LMR8vcbgDTaTWgWaPKHP+mnk9/5VXDfuJcY/h/nUs0kX2glJSzYOMJx92qyNmFz7gfzrN6DSEmP7pPx/nS2XOo59Dj86jlPyoPb+tOsjiUyH++P51HUvoDHiQdeB/OkIPkRn1Lf0oP+tlHTG7+dI0gEAXAyGP8AKncCUL/pJyeoP6iod37o+zD+tK0n75TnBwP5VECShA9RUuXYLEyynzBnumD+VXNGl/4mNgT/AA3KD/x4VTigZpYwcgEACrOmRBb20bJyLmMf+PCqVxOwttd7epxWhDqOP4qzTZMOxpfszjpmpUpIGkzW/tMY+9Va41AMD81UTaufWk+xOexp80gSRc0O8Zdbtym7cWwMVveI7h4b9klcmQ8nJ5FZmjTQaNbPem2EtznCE9FrOlkvNTvXuJiS7nJzVqTUbdSbXkaKlZmIB5OarahAyowPfj9KlisLmJQ/Pt71TvZ5Qdr54BovpqNeRbspM2cWT/Bj9avqeOvr/KsrSvmswOpBIrTjYBeV4P6cU4vQUh+eCP8AdFKuS495CfyFNVgx6cEr3p4ACqR6Maq5I1TgIT/tOaQfdiQ9yXb/AD+FDkLGeoxFj8TSSZUuc/di29PX/wDXTEV5STCOeZHz/n86dgfaZVA4Zcj+f9KQ/LKv+wm7+tJaEloGbPJ2n88f1oBGtYchT/ehI/I//WqDXioKHtja30//AFGpLFgBCM9Cyn8qqa1IHRgOu0MPwHNAJHd/svKyeMtUUg4FqoP/AH8FfYGnZEaYPUCvkX9mK5tF8S6pbvJi6mgjaNSfvKrHd+WR+FfWukNvjQk8V0r+EjL/AJeM39+Lf8Kzm5cn2q1Kx8vAquvGawWhsz4m/acl8340a0v/ADyWCP8AKJf8a81rvf2h5vO+NPidv7t0qf8AfMaCuBHFYS3NI7D1FPHTpTFp2RSKPov9iNC+t6uRztdPzxiuE/aH8UnxT8UtYvvML2dlIbO1GeNkRKj823N+NdP+yjqw0LQfHGt5wbCxadf94Idv/j2K8U1WRmO1iWkZt8h7lj/n9a3b0XoYrqUQ5DNM3zEHgn+8f85psHyoX7t8q/1NEykyLCvO3j8e9SQqJJwufkUdfYdTUAWocR2+3+KQ5P0HQf1/KvQf2fyh+OfhC1Khgl6XbI/iEbnP4HH5V5/E/wA73DDAQZA9+ij/AD6VJ4M8Qap4f8W2/iDSJ0ivbMu0LvGHAJUgnB4PBNDY4rU/Sp5VztdmbgdWNRXFzZWkZmuZ47ZB1eWQIB+Jr4G1z4w/E3WIZPtXi/UY1yBttmWAd/7gBridW1LUtQ2y6hqF3duc5aeZpCef9omosaXR+gmufFP4e6Nlb3xhpCuP4I7gSt+SZrgte/aa+HlkriwOq6q6jOIbby1P/AnI/lXxdg/a1HHVen0FRoP9Zn+6f50wPpXXv2rLp4ydE8JRx5JAe8uy3/jqAfzrz7xB+0F8StUcLDqdtpsbY+WztVU8/wC02TXlJH7gdfv/ANKDgSRe4WhsDY1rxd4p1ppv7W8Q6pegg5WW6cr19M4rCb/VD/eNPyMy5IHBx+dNPMQwpPJ6D6VLdwHD/XnB/hP/AKDSdLc/7w/lTtjiU5G047nHaomP7n/gX9KAGufmX2FKjbIUI9TUcp5PsMUJ87ImcDp+tZX1KHNIfMcjnOf1oEbsgOOM1bt7ZV8zeeQp/MGpCFa2wOMPz+I/+tVqnfclysV0gxOgduODn8KdF5awyADJyvNTSJGJomZyVIX/AAqtIyjzUjHH+BqrKItyV5xmE4wVHr707TnzqNuM/wDLzF/6GKqLG7IrYOM4zWjpFm39r28ZB3edGVHr8wP8qPekGiOxOjH+4ab/AGMf7tel/wBjjrtpBo6/3RWtkc3OzzddGP8AcqRdEJ/gr0hdGUnhKnj0QcfIPyoshObPNj4daa3kUjAAzzVOz0dVjZguCvSvWL+10vTdNkmv7hIQV4Hc15P4l8V2Sh7fTk2p03HqaeiV2OLlJ2Rl6rqKws0K4ygNc5c3G/GfQ0lxeLK7MQck81EzRuCeh6CsJTvsdUY2LuiS/M0eepyK2VXEYz1OK5u0byLtDng8Gunj5Re/FVTehMhIYzkdcgj+dTOMIRj+BufxqRQQM9Af8aZMG2H/AHG6fWtEQRSr8j4z/AKbPkiTrlnC1LKfmbOOZV/lUGcmPOeZCaYEM5x5zcDJ2/r/APWpA20hcD92VP8AjTGJMIHOWkP+f1pMg3E2enQfnx/KkBpI4TzOmUkDD6HNUr4nZu6+W+0j2NOV93U/fj/Uf/qpkgMg/wCui4/Ef5FJsaQeDtXfw54y03Vo2IWC4Vn94zww/Imvvfw3Os1pE8bZUqCCO4r88rgboznqvX6GvtH9nfXjrPw30ieSTdNHCbeU5/ijO3+QFbUXdOJE1qmesqC1NOAGJNMRiehqOZsD26UFHwb8apjP8W/FUmc51OUfkcf0rkVroPia/mfEfxK+c51W4H5SEVz61zS3NY7DwKQmlpjUhnefDjVRYeAvF9qZCv21ra3bHdCxZv0T9a4y4lLPJcN1B4+p6VJpTNHpt0dxAklC49cA5P6/rVW7Y5WEDJHJHua0vojK2rI4/ljZ+5+Vf6n/AD61PCClvnoZP/QR/wDX/lUQUSTLGp+UcZ/masxkPLvK/u0GcH+6OgpIGM1JzBbrF0bG5hnuen6U3TI/LcBupBz+Iqpcu1xeAEnGcn61pBI1uHUhiBu6secD2pLV3K2RGABbS/Vf61C5DRRhcsec4GakDKsEm1EByvO3p19ajmkcwR5Y/wAQ60WAcyv9rQ7CPu/e+XsPWokX/WZkRflPHJ70rc3SHPXb/IVGvWQH+61IaBvL8j77Nh+gXHamtt3x4TJIH3iT3pD/AKg/7/8ASg/fi+gpDAMR5uMLx2HvTWYmIZJIyf6Ug6Sn2/rSN/q0B9TSAcxxM3sD/Kom/wBWo9zT3/1kn4/zqM/wD0GaUmMjkOSfrUkPChs9DURNSAPg8Eg+lZx3Gy684FxuB4bn8xVfzjtZR9fyp0dpNIqE/J2+birsVrapPJ5jlsBuB0/OtUpMhtIoZZ0Uk9yBWlb2Sm5UyYjikx8z8YB7/gaeJoYbRzFEi4cYOOehrNu7iWd03MTheKv3Y+ZOstC21xawQyRgGRsjHYZp1jqMzapaBDtAliUYHbctZQQkA+pqzpaf8TK3PpcR/wDoYqJVJMpU4o+uDZgcYpRZL6CtY282f9RL/wB8GlFtN/zwl/74NaHJYy0shngVZisQT0FaEdrNn/Uyf98GrRtpEt3YxSDCn+A0BY+U/i3e3j+Lr6189jHG+FXPArhzBKxJb8a9Q8W6E8us3lw9vO7ySMc+W3+Fc1JpNwp2/Y7n3/ct/hSnTuzopysjl0tG7jNLLbqEz3zXRvpl4qcWVyeM/wCpb/Cs+606/LH/AEK5wo/54t/hWbhY15jEfjJB6Hiuj0m5MlsjN1HBrLk0y9yAbK69/wBy3+FWtEtr4StEbK6A6j9y3+FKPusT1RvxSeZyaWYcMOgCt/OlgtLwMAbO5HUf6lv8KsSWV2UYizuDwf8Ali3t7V0IyKMhO/p/y1/pVT/nl9WNactleebj7Hckeaf+WLen0ql9ivMRf6HdfdY/6lv8KBooqTmAf7RP61UldvKZgeS4P8zWgLK9zD/oV13/AOWLev0qo9le+SB9iujlv+eLen0qWxoljf8Adhh/CQw+hqc/cdB/CQ6/T/OKhtrW83mM2V0ABtP7luh/Cr0dleDy91lc8qUb9y3+H0pJjaMW+ASfeB8jjP59RXv/AOyDrOLTV9Cd/mgnS5jGf4XG1v1UfnXhl3YXrQsv2K63Rn/ni3Q/h6/zruP2c7i80v4n2iyWtykd9DJasWiYDdjcvb1WtaTtMiS0PtBLgbeD2psspcKuOpqOyikljU+W+SP7pq/LAYwn7ps5HY1q9GK90fnp46fzPHGvv13ancH/AMitWQorZ8VWd8/irWHFldHdf3Bz5Lf89G9qzxY32P8Ajyuv+/Lf4VyPc1WxATTGqz9ivf8Anyuv+/Lf4UsOnX0k8cf2K6wzAf6lv8KQy1sFvp8IYfdXzGHqT0H8qygxG+U8noPqa3dbtb3ZHClndEn5jiBvoo6en86y3sL5pFhWzucLxnyW69z0qmyF5kMGUhJPWTgfTvUly/kWmw8M+GP07D+tWI7G8kn/AOPK6Ea/9MW4Ufh3/rVK/ttQmmINldcnJ/cN/hSk7IaV2RWiElXPVuefrWjtJu5eSPv9PoaItPvVEQ+xXP3R/wAsW9fpVoWN79ql/wBCuv4/+WLeh9qaVkJmaB+4k5zytMk/1Ef1b+lXRY3v2eU/Yrrkrj9y3v7VFNY3vkR/6FdZ+bP7luP0oYFZs/aI/wDgH9KYp+aUj+61W2sb37XH/oV3/D/yxb0HtUS2N9+8P2K7+6f+WLev0qWUiof9R/wP+lLn95H9Fqc2N8IR/oV198/8sG9PpR9hvjNH/oV10X/lg3p9KBlUH5JD9P50jf8ALP8Az3qcWN95bn7DddR/ywb/AApfsN9vj/0G74H/ADxb/ClcZUc/6wjuf601+M+wxVj7Dflf+PG65b/ng3+FI1jfnd/oN3yf+eDf4VnJjRUPLAVbtgVDkdQMD86YbC/Lf8eN3/34b/CpUs9RBz9iu/mGD+5b/ClF2BomaOQiI+YMEf1NTxWuJpVeT+FsfzqqLXUyu37Dd5U/88G/wqdbbUjKjGxu+ev7lvp6Vqpp7kuLFlRGtCqn/loP5GoPs+1om5+Yf1xU8VlqAWRTY3fAB/1Ddj9PepRa3xhUGxuvlYj/AFDd/wAKpWZLuUQmI2UjlG/+tVjTogdVt8fxTRsP++wf8avtpl00mRZXIEqZH7lup/D1p2m6dei/sZPsNz8twgb9y3TcPb61fKSpH//Z" alt="Avik Nandi" class="hero-photo">
+    </div>
   </div>
   <div class="hero-stats">
     <div class="stat"><div class="stat-num">20+</div><div class="stat-label">Years in Payments</div></div>
     <div class="stat"><div class="stat-num">$50B+</div><div class="stat-label">Annual Volume</div></div>
     <div class="stat"><div class="stat-num">60+</div><div class="stat-label">Countries</div></div>
     <div class="stat"><div class="stat-num">1</div><div class="stat-label">Book Published</div></div>
+    <div class="stat"><div class="stat-num">1</div><div class="stat-label">SSRN Research Paper</div></div>
   </div>
 </section>
 
 <div class="divider"></div>
 
+
+<!-- IMPACT STRIP -->
+<div class="impact-strip">
+  <div class="impact-inner fi">
+    <div class="impact-grid">
+      <div class="impact-item"><div class="impact-num">20<span>+</span></div><div class="impact-lbl">Years in Payments</div></div>
+      <div class="impact-item"><div class="impact-num">$50<span>B+</span></div><div class="impact-lbl">Annual Volume Managed</div></div>
+      <div class="impact-item"><div class="impact-num">60<span>+</span></div><div class="impact-lbl">Countries</div></div>
+      <div class="impact-item"><div class="impact-num">$65<span>M+</span></div><div class="impact-lbl">Programs Led</div></div>
+      <div class="impact-item"><div class="impact-num">1.8<span>M+</span></div><div class="impact-lbl">Customers Impacted</div></div>
+      <div class="impact-item"><div class="impact-num">25<span>+</span></div><div class="impact-lbl">Articles Published</div></div>
+      <div class="impact-item"><div class="impact-num">2</div><div class="impact-lbl">Books & Papers</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
 <!-- EXPERTISE -->
 <div id="expertise">
 <div class="wrap fi">
   <p class="sec-label">Expertise</p>
   <h2 class="sec-head">Domain depth across<br>the full payments stack.</h2>
   <p class="sec-sub">Two decades at the intersection of platform architecture, AI strategy, and regulated financial infrastructure.</p>
+  <div class="topic-wrap fi d1">
+    <div class="topic-primary">
+      <span class="topic-tag primary blue">Stablecoin Infrastructure</span>
+      <span class="topic-tag primary blue">AI Payment Orchestration</span>
+      <span class="topic-tag primary">Multi-Rail Architecture</span>
+    </div>
+    <div class="topic-secondary">
+      <span class="topic-tag secondary">Cross-Border Payments</span>
+      <span class="topic-tag secondary">Merchant Acquiring</span>
+      <span class="topic-tag secondary">Agentic Commerce</span>
+      <span class="topic-tag secondary">Payment Intelligence</span>
+      <span class="topic-tag secondary">ISO 20022</span>
+    </div>
+    <div class="topic-tertiary">
+      <span class="topic-tag tertiary">Merchant of Record</span>
+      <span class="topic-tag tertiary">Fraud & Risk</span>
+      <span class="topic-tag tertiary">FX Strategy</span>
+      <span class="topic-tag tertiary">BNPL</span>
+      <span class="topic-tag tertiary">Real-Time Payments</span>
+      <span class="topic-tag tertiary">Cloud Modernization</span>
+      <span class="topic-tag tertiary">Tokenized Settlement</span>
+      <span class="topic-tag tertiary">API-First Platforms</span>
+      <span class="topic-tag tertiary">CBDC</span>
+      <span class="topic-tag tertiary">Open Banking</span>
+    </div>
+  </div>
   <div class="bento">
     <div class="bc wide dark fi d1"><span class="bc-icon" aria-hidden="true">⬡</span><div class="bc-title">Multi-Rail Payments Architecture</div><div class="bc-desc">Deep expertise across Debit, Credit, ACH, RTP, Fedwire, SWIFT, and emerging tokenized settlement. ISO 20022 & ISO 8583 messaging, network strategy, and scheme integration at enterprise scale.</div></div>
     <div class="bc fi d2"><span class="bc-icon" aria-hidden="true">◈</span><div class="bc-title">Stablecoin & Programmable Settlement</div><div class="bc-desc">Pioneering strategy for stablecoin acquiring, tokenized money flows, and programmable treasury. Recognized author on the autonomous money stack and agentic commerce infrastructure.</div></div>
@@ -306,6 +493,46 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:48px;display:flex;al
   </div>
 </section>
 
+<!-- RESEARCH -->
+<div id="research">
+<div class="wrap fi">
+  <p class="sec-label">Academic Research</p>
+  <h2 class="sec-head">Peer-reviewed thinking on<br>the future of payments.</h2>
+  <p class="sec-sub">Published on SSRN — the leading preprint repository for economics and finance research. Indexed with JEL classification for academic citation.</p>
+
+  <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6613638" target="_blank" rel="noopener noreferrer" class="research-card fi d1">
+    <div class="research-body">
+      <div class="research-badge">📄 SSRN Working Paper · April 2026</div>
+      <div class="research-title">The Emergence of Intelligent Payment Systems: An AI-Driven Framework for Multi-Rail Payment Orchestration</div>
+      <p class="research-abstract">The global payments ecosystem has evolved into a fragmented network of heterogeneous financial rails — traditional banking, card networks, real-time payment infrastructures, and blockchain-based settlement layers. This paper proposes a conceptual framework for AI-driven payment orchestration, enabling dynamic routing of transactions across multiple rails based on contextual intent. The framework incorporates an intelligence layer evaluating cost, speed, compliance, liquidity, and corridor-specific dynamics — reframing payments as a decision-making system rather than a purely execution-driven process.</p>
+      <div class="research-meta">
+        <div class="research-meta-item"><strong>Platform</strong> SSRN</div>
+        <div class="research-meta-item"><strong>Published</strong> April 20, 2026</div>
+        <div class="research-meta-item"><strong>Pages</strong> 9</div>
+        <div class="research-meta-item"><strong>Abstract ID</strong> 6613638</div>
+        <div class="research-meta-item"><strong>JEL</strong> G21 · G23 · E42 · O33</div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:2rem">
+        <span style="font-size:.68rem;padding:.28rem .7rem;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:980px;color:rgba(255,255,255,.45)">Intelligent Payments</span>
+        <span style="font-size:.68rem;padding:.28rem .7rem;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:980px;color:rgba(255,255,255,.45)">Payment Orchestration</span>
+        <span style="font-size:.68rem;padding:.28rem .7rem;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:980px;color:rgba(255,255,255,.45)">Multi-Rail Systems</span>
+        <span style="font-size:.68rem;padding:.28rem .7rem;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:980px;color:rgba(255,255,255,.45)">Artificial Intelligence</span>
+        <span style="font-size:.68rem;padding:.28rem .7rem;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:980px;color:rgba(255,255,255,.45)">Real-Time Payments</span>
+        <span style="font-size:.68rem;padding:.28rem .7rem;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:980px;color:rgba(255,255,255,.45)">Financial Infrastructure</span>
+      </div>
+      <span class="btn-ssrn">Read on SSRN →</span>
+    </div>
+    <div class="research-aside">
+      <div class="research-aside-icon">◈</div>
+      <div class="research-aside-num">SSRN</div>
+      <div class="research-aside-lbl">Working Paper · 2026</div>
+    </div>
+  </a>
+</div>
+</div>
+
+<div class="divider"></div>
+
 <!-- CLIENTS -->
 <div id="clients">
 <div class="wrap fi">
@@ -357,6 +584,47 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:48px;display:flex;al
 
 <div class="divider"></div>
 
+
+<div class="divider"></div>
+
+<!-- PUBLICATION TIMELINE -->
+<div id="pubhistory">
+<div class="wrap fi">
+  <p class="sec-label">Publication History</p>
+  <h2 class="sec-head">A decade of thought<br>leadership in print.</h2>
+  <p class="sec-sub">From the first Finextra post in 2017 to an SSRN research paper in 2026 — a consistent arc of published thinking on payments, stablecoins, and AI.</p>
+  <div class="pub-timeline">
+    <div class="ptl-item highlight fi">
+      <div><div class="ptl-date">Apr 2026</div><div class="ptl-platform">SSRN</div></div>
+      <div><div class="ptl-title">The Emergence of Intelligent Payment Systems<span class="ptl-badge">Research Paper</span></div><div class="ptl-sub">AI-driven framework for multi-rail payment orchestration. JEL: G21, G23, E42, O33.</div></div>
+    </div>
+    <div class="ptl-item highlight fi d1">
+      <div><div class="ptl-date">Apr 2026</div><div class="ptl-platform">Medium</div></div>
+      <div><div class="ptl-title">The Internet Was Built Without a Payment Layer. HTTP 402 May Finally Have One.<span class="ptl-badge">New</span></div><div class="ptl-sub">Why x402 could become the payment primitive for APIs, crawlers, and AI agents.</div></div>
+    </div>
+    <div class="ptl-item fi d1">
+      <div><div class="ptl-date">Mar–Apr 2026</div><div class="ptl-platform">Finextra · 7 articles</div></div>
+      <div><div class="ptl-title">Stablecoin Series: From State Machines to Internet Financial System</div><div class="ptl-sub">Deep-dive series covering programmable settlement, control planes, orchestration layers, and the rise of the internet financial system.</div></div>
+    </div>
+    <div class="ptl-item fi d2">
+      <div><div class="ptl-date">Mar–Apr 2026</div><div class="ptl-platform">Medium · 8 articles</div></div>
+      <div><div class="ptl-title">Stablecoin & Agentic Commerce Series</div><div class="ptl-sub">From the Stablecoin Periodic Table to the Autonomous Money Stack — mapping the full architecture of intelligent payment infrastructure.</div></div>
+    </div>
+    <div class="ptl-item highlight fi d2">
+      <div><div class="ptl-date">2026</div><div class="ptl-platform">Amazon · Paperback</div></div>
+      <div><div class="ptl-title">The Intelligent Payments Stack<span class="ptl-badge">Book</span></div><div class="ptl-sub">How stablecoins, orchestration, and AI are converging to transform static payment flows into programmable, intelligent systems.</div></div>
+    </div>
+    <div class="ptl-item fi d3">
+      <div><div class="ptl-date">2025</div><div class="ptl-platform">Wipro.com</div></div>
+      <div><div class="ptl-title">Adaptive AI in BFSI: Rethinking Fraud Defense for a Digital Era</div><div class="ptl-sub">How adaptive intelligence systems are transforming fraud detection across banking and financial services at enterprise scale.</div></div>
+    </div>
+    <div class="ptl-item fi d3">
+      <div><div class="ptl-date">Jul 2017</div><div class="ptl-platform">Finextra</div></div>
+      <div><div class="ptl-title">Alternate Payments & the Ecosystem</div><div class="ptl-sub">The post that started a 9-year thought leadership journey in fintech and payments.</div></div>
+    </div>
+  </div>
+</div>
+</div>
 <!-- WRITING -->
 <div id="writing">
 <div class="wrap fi">
@@ -365,24 +633,25 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:48px;display:flex;al
   <p class="sec-sub" style="margin-bottom:2.5rem">Published across Medium, Finextra, and Wipro.com on the future of payments, stablecoins, and AI.</p>
 
   <div class="tab-bar" role="tablist" aria-label="Thought leadership publications">
-    <button class="tab-btn active" role="tab" aria-selected="true" aria-controls="tab-medium" onclick="showTab('medium',this)">Medium</button>
+    <button class="tab-btn active" role="tab" aria-selected="true" aria-controls="tab-medium" onclick="showTab('medium',this)">Medium (10)</button>
     <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-finextra" onclick="showTab('finextra',this)">Finextra (14+)</button>
     <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-corporate" onclick="showTab('corporate',this)">Corporate</button>
   </div>
 
   <div id="tab-medium" class="pub-grid" role="tabpanel">
-    <a href="https://medium.com/@avikcincy/from-payments-to-intelligent-value-orchestration-how-ai-programmable-money-and-multi-rail-68a08d879faf" target="_blank" rel="noopener noreferrer" class="pub-feat">
-      <div class="pub-feat-body"><span class="pub-feat-badge">Latest · Medium</span><div class="pub-feat-title">From Payments to Intelligent Value Orchestration</div><p class="pub-feat-desc">AI agents, programmable money, stablecoins, real-time rails, and invisible commerce reshaping how money moves at machine scale.</p></div>
-      <div class="pub-feat-aside"><div class="pub-aside-num">01</div><div class="pub-aside-lbl">Featured</div></div>
+    <a href="https://medium.com/@avikcincy/the-internet-was-built-without-a-payment-layer-http-402-may-finally-have-one-f3e13fed358b" target="_blank" rel="noopener noreferrer" class="pub-feat">
+      <div class="pub-feat-body"><span class="pub-feat-badge">Latest · Medium · Apr 24, 2026</span><div class="pub-feat-title">The Internet Was Built Without a Payment Layer. HTTP 402 May Finally Have One.</div><p class="pub-feat-desc">Why x402 could turn a forgotten 1997 status code into the payment primitive for APIs, crawlers, and AI agents.</p></div>
+      <div class="pub-feat-aside"><div class="pub-aside-num">10</div><div class="pub-aside-lbl">Articles on Medium</div></div>
     </a>
     <a href="https://medium.com/@avikcincy/from-stablecoin-infrastructure-to-agentic-commerce-853afaf7b2c6" target="_blank" rel="noopener noreferrer" class="pub-card"><div class="pub-platform">Medium · Pinned</div><div class="pub-title">From Stablecoin Infrastructure to Agentic Commerce</div><p class="pub-sub">Why payments become invisible in a machine-driven economy.</p><div class="pub-date">Mar 30, 2025</div></a>
-    <a href="https://medium.com/@avikcincy/the-missing-layer-in-stablecoins-testing-assurance-and-trust-in-an-irreversible-payment-world-57e333f69410" target="_blank" rel="noopener noreferrer" class="pub-card"><div class="pub-platform">Medium</div><div class="pub-title">The Missing Layer in Stablecoins: Testing, Assurance & Trust</div><p class="pub-sub">A new discipline the industry hasn't yet built.</p><div class="pub-date">Apr 15, 2025</div></a>
-    <a href="https://medium.com/@avikcincy/why-stablecoins-still-need-an-intelligence-engine-to-power-global-payments-a3fe9fcd860e" target="_blank" rel="noopener noreferrer" class="pub-card"><div class="pub-platform">Medium</div><div class="pub-title">Why Stablecoins Still Need an Intelligence Engine</div><p class="pub-sub">Stablecoins solved movement. They did not solve decision.</p><div class="pub-date">Apr 9, 2025</div></a>
-    <a href="https://medium.com/@avikcincy/the-stablecoin-acquiring-playbook-how-to-build-monetize-and-scale-the-next-generation-of-49ee4bdc3b08" target="_blank" rel="noopener noreferrer" class="pub-card"><div class="pub-platform">Medium</div><div class="pub-title">The Stablecoin Acquiring Playbook</div><p class="pub-sub">Build, monetize, and scale next-gen acquiring on stablecoin rails.</p><div class="pub-date">Apr 6, 2025</div></a>
-    <a href="https://medium.com/@avikcincy/beyond-agentic-commerce-the-rise-of-the-autonomous-money-stack-the-shift-no-one-is-fully-pricing-3684939e0c1e" target="_blank" rel="noopener noreferrer" class="pub-card"><div class="pub-platform">Medium</div><div class="pub-title">The Rise of the Autonomous Money Stack</div><p class="pub-sub">The shift no one is fully pricing in.</p><div class="pub-date">Apr 3, 2025</div></a>
-    <a href="https://medium.com/@avikcincy/the-agentic-commerce-stack-from-protocols-to-real-world-payments-81a136d8b275" target="_blank" rel="noopener noreferrer" class="pub-card"><div class="pub-platform">Medium</div><div class="pub-title">The Agentic Commerce Stack: From Protocols to Real-World Payments</div><p class="pub-sub">How AI agents transact reliably in the real world.</p><div class="pub-date">Apr 1, 2025</div></a>
-    <a href="https://medium.com/@avikcincy/the-emergence-of-intelligent-payment-systems-154044c1905d" target="_blank" rel="noopener noreferrer" class="pub-card"><div class="pub-platform">Medium</div><div class="pub-title">The Emergence of Intelligent Payment Systems</div><p class="pub-sub">From Stablecoin Architecture to AI-Driven Routing.</p><div class="pub-date">Mar 26, 2025</div></a>
-    <a href="https://medium.com/@avikcincy/the-stablecoin-stack-mapping-the-architecture-of-the-internet-financial-system-ac2d4ff16f5d" target="_blank" rel="noopener noreferrer" class="pub-card"><div class="pub-platform">Medium</div><div class="pub-title">The Stablecoin Periodic Table</div><p class="pub-sub">Mapping the architecture of the internet financial system.</p><div class="pub-date">Mar 25, 2025</div></a>
+    <a href="https://medium.com/@avikcincy/from-payments-to-intelligent-value-orchestration-how-ai-programmable-money-and-multi-rail-68a08d879faf" target="_blank" rel="noopener noreferrer" class="pub-card"><div class="pub-platform">Medium · Apr 20, 2026</div><div class="pub-title">From Payments to Intelligent Value Orchestration</div><p class="pub-sub">AI, programmable money, stablecoins, and real-time rails reshaping how money moves at machine scale.</p><div class="pub-date">Apr 20, 2026</div></a>
+    <a href="https://medium.com/@avikcincy/the-missing-layer-in-stablecoins-testing-assurance-and-trust-in-an-irreversible-payment-world-57e333f69410" target="_blank" rel="noopener noreferrer" class="pub-card"><div class="pub-platform">Medium</div><div class="pub-title">The Missing Layer in Stablecoins: Testing, Assurance & Trust</div><p class="pub-sub">A new discipline the industry hasn't yet built.</p><div class="pub-date">Apr 14, 2026</div></a>
+    <a href="https://medium.com/@avikcincy/why-stablecoins-still-need-an-intelligence-engine-to-power-global-payments-a3fe9fcd860e" target="_blank" rel="noopener noreferrer" class="pub-card"><div class="pub-platform">Medium</div><div class="pub-title">Why Stablecoins Still Need an Intelligence Engine</div><p class="pub-sub">Stablecoins solved movement. They did not solve decision.</p><div class="pub-date">Apr 9, 2026</div></a>
+    <a href="https://medium.com/@avikcincy/the-stablecoin-acquiring-playbook-how-to-build-monetize-and-scale-the-next-generation-of-49ee4bdc3b08" target="_blank" rel="noopener noreferrer" class="pub-card"><div class="pub-platform">Medium</div><div class="pub-title">The Stablecoin Acquiring Playbook</div><p class="pub-sub">Build, monetize, and scale next-gen acquiring on stablecoin rails.</p><div class="pub-date">Apr 6, 2026</div></a>
+    <a href="https://medium.com/@avikcincy/beyond-agentic-commerce-the-rise-of-the-autonomous-money-stack-the-shift-no-one-is-fully-pricing-3684939e0c1e" target="_blank" rel="noopener noreferrer" class="pub-card"><div class="pub-platform">Medium</div><div class="pub-title">The Rise of the Autonomous Money Stack</div><p class="pub-sub">The shift no one is fully pricing in.</p><div class="pub-date">Apr 3, 2026</div></a>
+    <a href="https://medium.com/@avikcincy/the-agentic-commerce-stack-from-protocols-to-real-world-payments-81a136d8b275" target="_blank" rel="noopener noreferrer" class="pub-card"><div class="pub-platform">Medium</div><div class="pub-title">The Agentic Commerce Stack: From Protocols to Real-World Payments</div><p class="pub-sub">How AI agents transact reliably in the real world.</p><div class="pub-date">Apr 1, 2026</div></a>
+    <a href="https://medium.com/@avikcincy/the-emergence-of-intelligent-payment-systems-154044c1905d" target="_blank" rel="noopener noreferrer" class="pub-card"><div class="pub-platform">Medium</div><div class="pub-title">The Emergence of Intelligent Payment Systems</div><p class="pub-sub">From Stablecoin Architecture to AI-Driven Routing.</p><div class="pub-date">Mar 26, 2026</div></a>
+    <a href="https://medium.com/@avikcincy/the-stablecoin-stack-mapping-the-architecture-of-the-internet-financial-system-ac2d4ff16f5d" target="_blank" rel="noopener noreferrer" class="pub-card"><div class="pub-platform">Medium</div><div class="pub-title">The Stablecoin Periodic Table</div><p class="pub-sub">Mapping the architecture of the internet financial system.</p><div class="pub-date">Mar 25, 2026</div></a>
   </div>
 
   <div id="tab-finextra" class="pub-grid hidden" role="tabpanel">
@@ -408,6 +677,64 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:48px;display:flex;al
 </div>
 </div>
 
+<div class="divider"></div>
+
+<!-- INTELLIGENCE LAB -->
+<div id="lab">
+<div class="lab-section">
+  <div class="lab-inner">
+    <p class="sec-label fi" style="color:rgba(255,255,255,.4)">Live Intelligence</p>
+    <h2 class="lab-head fi d1">Merchant Intelligence Monitor</h2>
+    <p class="lab-sub fi d2">A live payments intelligence terminal tracking merchant acquiring signals, platform shifts, and market developments — built to cut through noise in real time.</p>
+    <div class="lab-frame-wrap fi d3">
+      <a href="https://avikcincy-sanju.github.io/Merchant-Intelligence-Edition/" target="_blank" rel="noopener noreferrer" class="lab-preview">
+        <div class="lab-preview-top">
+          <div class="lab-preview-dots"><span></span><span></span><span></span></div>
+          <div class="lab-preview-url">avikcincy-sanju.github.io/Merchant-Intelligence-Edition</div>
+          <div class="lab-preview-launch">↗</div>
+        </div>
+        <div class="lab-preview-body">
+          <div class="lab-preview-live"><span class="lab-live-dot"></span>Live</div>
+          <div class="lab-preview-title">Merchant Intelligence Monitor</div>
+          <p class="lab-preview-desc">A real-time payments intelligence terminal tracking merchant acquiring signals, platform shifts, PSP developments, and market-moving news — refreshing every 5 minutes across categories including Payments, Crypto & DeFi, Open Banking, Regulation, and Embedded Finance.</p>
+          <div class="lab-preview-tags">
+            <span>Merchant Acquiring</span>
+            <span>Payments Platforms</span>
+            <span>Crypto & DeFi</span>
+            <span>Regulation</span>
+            <span>Open Banking</span>
+            <span>Embedded Finance</span>
+          </div>
+          <div class="lab-preview-cta">Launch Intelligence Terminal →</div>
+        </div>
+      </a>
+    </div>
+    <div class="lab-meta fi d3">
+      <div class="lab-meta-item"><strong>Coverage</strong> Merchant Acquiring · Payments Platforms · Market Signals</div>
+      <div class="lab-meta-item"><strong>Refresh</strong> Every 5 minutes</div>
+      <div class="lab-meta-item"><strong>Built by</strong> Avik Nandi</div>
+      <div class="lab-meta-item"><a href="https://avikcincy-sanju.github.io/Merchant-Intelligence-Edition/" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.4);text-decoration:none;transition:color .2s" onmouseover="this.style.color='rgba(255,255,255,.7)'" onmouseout="this.style.color='rgba(255,255,255,.4)'">Open full screen ↗</a></div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="divider"></div>
+
+
+<!-- SUBSCRIBE -->
+<section class="subscribe-sec">
+  <div class="subscribe-inner fi">
+    <h2 class="subscribe-head">Stay ahead of intelligent payments.</h2>
+    <p class="subscribe-sub">25+ articles across Medium, Finextra, SSRN, and Wipro.com — and more coming. Follow to get new thinking on stablecoins, AI orchestration, and the future of financial infrastructure directly in your feed.</p>
+    <div class="subscribe-links">
+      <a href="https://medium.com/@avikcincy" target="_blank" rel="noopener noreferrer" class="sub-btn fill">Follow on Medium</a>
+      <a href="https://www.finextra.com/bloggers/170911" target="_blank" rel="noopener noreferrer" class="sub-btn outline">Follow on Finextra</a>
+      <a href="https://www.linkedin.com/in/avikz" target="_blank" rel="noopener noreferrer" class="sub-btn outline">Connect on LinkedIn</a>
+    </div>
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section id="contact" class="contact-sec">
   <div class="contact-inner">
@@ -418,6 +745,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:48px;display:flex;al
       <a href="https://www.linkedin.com/in/avikz" target="_blank" rel="noopener noreferrer" class="contact-link">LinkedIn</a>
       <a href="https://medium.com/@avikcincy" target="_blank" rel="noopener noreferrer" class="contact-link">Medium</a>
       <a href="https://www.finextra.com/bloggers/170911" target="_blank" rel="noopener noreferrer" class="contact-link">Finextra</a>
+      <a href="https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=6613638" target="_blank" rel="noopener noreferrer" class="contact-link">📄 SSRN</a>
       <a href="https://www.amazon.com/dp/B0GVL7Q4GG" target="_blank" rel="noopener noreferrer" class="contact-link">📖 My Book</a>
     </div>
     <p class="footer-copy">© 2026 Avik Nandi · Cincinnati, Ohio · Product Manager, Wipro Limited</p>
